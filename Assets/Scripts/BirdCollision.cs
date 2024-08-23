@@ -5,9 +5,7 @@ using UnityEngine;
 public class BirdCollision : MonoBehaviour
 {
     public GameObject bird;
-
-
-
+    public GameObject gameovermenu;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -27,5 +25,6 @@ public class BirdCollision : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0f;
+        gameovermenu.SetActive(true);
     }
 }

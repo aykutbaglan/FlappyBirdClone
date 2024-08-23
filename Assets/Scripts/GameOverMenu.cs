@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class GameOverMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject highScoreText;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        highScoreText.SetActive(true);
     }
 }

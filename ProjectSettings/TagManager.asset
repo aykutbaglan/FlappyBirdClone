@@ -47,3 +47,6 @@ TagManager:
   - name: Pipes
     uniqueID: 1321058715
     locked: 0
+  - name: TextGold
+    uniqueID: 1952727859
+    locked: 0
