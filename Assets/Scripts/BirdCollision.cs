@@ -14,11 +14,15 @@ public class BirdCollision : MonoBehaviour
             GameOver();
         }
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.tag == "score")
+        {
+            FindObjectOfType<ScoreManager>().IncreaseScore();
+        }
         if (other.gameObject.tag == "coin")
         {
+            FindObjectOfType<ScoreManager>().IncreaseGoldScore();
             Destroy(other.gameObject);
         }
     }
