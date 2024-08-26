@@ -16,7 +16,7 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         scoreText.text = score.ToString();
         highScoreText.text = "High Score :" + PlayerPrefs.GetInt("highScore");
-        goldScore = PlayerPrefs.GetInt(nameof(goldScore));
+        goldScore = PlayerPrefs.GetInt("TotalCoins");
         goldScoreText.text = goldScore.ToString();
 
     }
@@ -34,7 +34,7 @@ public class ScoreManager : MonoBehaviour
     public void IncreaseGoldScore()
     {
         goldScore++;
-        PlayerPrefs.SetInt(nameof(goldScore), goldScore);
+        PlayerPrefs.SetInt("TotalCoins", goldScore);
         goldScoreText.text = goldScore.ToString();
     }
 }
