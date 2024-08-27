@@ -58,14 +58,14 @@ public class ShopManager : MonoBehaviour
                 // Eðer kuþ zaten satýn alýndýysa, butonun text'ini "Selected" olarak güncelle
                 buyButtons[i].buttonText.text = "Selected";
             }
-            if (totalCoins >= coinRequirements[1])
+            else if (totalCoins >= coinRequirements[1])
             {
                 // Satýn alýnmamýþ ama yeterli coin varsa, fiyatýný göster
                 buyButtons[1].buttonText.text = "25";
                 Debug.Log("25");
 
             }
-            if (totalCoins >= coinRequirements[2])
+            else if (totalCoins >= coinRequirements[2])
             {
                 // Satýn alýnmamýþ ve yeterli coin yoksa, gerekli coin miktarýný göster
                 buyButtons[i].buttonText.text = "50 " + coinRequirements[i] + " Coins";
