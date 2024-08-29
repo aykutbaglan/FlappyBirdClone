@@ -18,10 +18,9 @@ public class ShopManager : MonoBehaviour
     public Button pressedButton;
     private bool[] birdPurchased; // Kuþlarýn satýn alýnýp alýnmadýðýný izlemek için
 
-
-
     private void Start()
     {
+        startButton.interactable = true;
         totalCoins = PlayerPrefs.GetInt("TotalCoins", 0);
         birdPurchased = new bool[birds.Length];
 
@@ -29,13 +28,22 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < birds.Length; i++)
         {
             birdPurchased[i] = PlayerPrefs.GetInt("BirdPurchased_" + i, 0) == 1;
+            birdsimg[i].SetActive(false); // Tüm kuþlarý baþlangýçta kapalý yapýyoruz.
         }
+
         int savedBirdIndex = PlayerPrefs.GetInt("SelectedBirdIndex", -1);
         if (savedBirdIndex != -1)
         {
             BirdChange(savedBirdIndex);
         }
-        startButton.interactable = savedBirdIndex != -1;
+        else
+        {
+            // Eðer herhangi bir kuþ seçilmemiþse, ilk kuþu aktif yapalým
+            birdsimg[0].SetActive(true);
+            buyButtons[0].buttonText.text = "Selected";
+        }
+
+        //startButton.interactable = savedBirdIndex != -1;
 
         UpdateShopButtons();
         UpdateGoldText();  // Gold miktarýný baþlangýçta göster
@@ -58,17 +66,15 @@ public class ShopManager : MonoBehaviour
                 // Eðer kuþ zaten satýn alýndýysa, butonun text'ini "Selected" olarak güncelle
                 buyButtons[i].buttonText.text = "Selected";
             }
-            else if (totalCoins >= coinRequirements[1])
+            else if (totalCoins >= coinRequirements[i])
             {
                 // Satýn alýnmamýþ ama yeterli coin varsa, fiyatýný göster
-                buyButtons[1].buttonText.text = "25";
-                Debug.Log("25");
-
+                buyButtons[i].buttonText.text = coinRequirements[i].ToString();
             }
-            else if (totalCoins >= coinRequirements[2])
+            else
+            //satýn alýnmamýþ ve yeterli coin yoksa,yine fiyatýný göster
             {
-                // Satýn alýnmamýþ ve yeterli coin yoksa, gerekli coin miktarýný göster
-                buyButtons[i].buttonText.text = "50 " + coinRequirements[i] + " Coins";
+                buyButtons[i].buttonText.text = coinRequirements[i].ToString();
             }
         }
     }
@@ -87,7 +93,6 @@ public class ShopManager : MonoBehaviour
                     birdPurchased[birdIndex] = true;
                     PlayerPrefs.SetInt("BirdPurchased_" + birdIndex, 1);  // Satýn alýnmýþ olarak kaydet
                 }
-
                 // Gold text'ini güncelle
                 UpdateGoldText();
 
@@ -99,6 +104,7 @@ public class ShopManager : MonoBehaviour
                 birdsimg[birdIndex].SetActive(true);
 
                 // Seçilen kuþun text'ini "Selected" olarak güncelle
+                buyButtons[0].buttonText.text = "Selected";
                 buyButtons[birdIndex].buttonText.text = "Selected";
                 PlayerPrefs.SetInt("SelectedBirdIndex", birdIndex);
                 startButton.interactable = true;
@@ -109,7 +115,6 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-
     private void UpdateGoldText()
     {
         goldtxt.text = totalCoins.ToString();
