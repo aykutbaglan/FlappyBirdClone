@@ -7,6 +7,7 @@ public class StartMenu : MonoBehaviour
 {
     public GameObject startmenu;
     public GameObject highScoreText;
+    public birdController birdController;
     public void Start()
     {
         Time.timeScale = 0f;

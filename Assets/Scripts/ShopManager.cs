@@ -15,12 +15,11 @@ public class ShopManager : MonoBehaviour
     public TMP_Text goldtxt;
     public int totalCoins = 0;
     public Button startButton;
-    public Button pressedButton;
     private bool[] birdPurchased; // Kuþlarýn satýn alýnýp alýnmadýðýný izlemek için
+
 
     private void Start()
     {
-        startButton.interactable = true;
         totalCoins = PlayerPrefs.GetInt("TotalCoins", 0);
         birdPurchased = new bool[birds.Length];
 
@@ -38,12 +37,11 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            // Eðer herhangi bir kuþ seçilmemiþse, ilk kuþu aktif yapalým
+            // Eðer herhangi bir kuþ seçilmemiþse, ilk kuþu aktif edelim
             birdsimg[0].SetActive(true);
-            buyButtons[0].buttonText.text = "Selected";
         }
 
-        //startButton.interactable = savedBirdIndex != -1;
+        startButton.interactable = savedBirdIndex != -1;
 
         UpdateShopButtons();
         UpdateGoldText();  // Gold miktarýný baþlangýçta göster
@@ -56,7 +54,7 @@ public class ShopManager : MonoBehaviour
         UpdateGoldText();  // Coin toplandýðýnda güncelle
     }
 
-    private void UpdateShopButtons()
+    public void UpdateShopButtons()
     {
         for (int i = 0; i < buttons.Length; i++)
         {
@@ -104,7 +102,6 @@ public class ShopManager : MonoBehaviour
                 birdsimg[birdIndex].SetActive(true);
 
                 // Seçilen kuþun text'ini "Selected" olarak güncelle
-                buyButtons[0].buttonText.text = "Selected";
                 buyButtons[birdIndex].buttonText.text = "Selected";
                 PlayerPrefs.SetInt("SelectedBirdIndex", birdIndex);
                 startButton.interactable = true;
