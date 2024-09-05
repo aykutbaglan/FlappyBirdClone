@@ -6,12 +6,22 @@ public class BirdCollision : MonoBehaviour
 {
     public GameObject bird;
     public GameObject gameovermenu;
+    public GameManager gameManager;
+
+
+    private void Awake()
+    {
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag =="obstacle")
         {
-            GameOver();
+            gameManager.GameOver();
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -25,10 +35,5 @@ public class BirdCollision : MonoBehaviour
             FindObjectOfType<ScoreManager>().IncreaseGoldScore();
             Destroy(other.gameObject);
         }
-    }
-    public void GameOver()
-    {
-        Time.timeScale = 0f;
-        gameovermenu.SetActive(true);
     }
 }
