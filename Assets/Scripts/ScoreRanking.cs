@@ -1,30 +1,182 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreRanking : MonoBehaviour
 {
-    public GameObject rankingPanel;
+    public PlayerProperties[] playerProperties;
+    public ScoreTablePlayer[] players = new ScoreTablePlayer[10];
+    [SerializeField] private List<PlayerProperties> sortingPlayers = new List<PlayerProperties>();
+    public GameObject scoreRankingPanel;
     public GameObject shopPanel;
-    private Button closeButton;
-
-    public void ScoreRank()
+    public int currentScore = 0;
+    public PlayerProperties mainPlayer;
+    public Button saveScoreButtonTest;
+    public GameObject restartButton;
+    public GameObject startButton;
+    private void Start()
     {
-        rankingPanel.SetActive(true);
-        if (shopPanel.activeSelf)
+        if (playerProperties.Length != players.Length)
         {
-            shopPanel.SetActive(false);
+            Application.Quit();
+            return;
+        }
+        PlayerSort();
+        WriteAllDataBoard();
+        RefreshBoard();
+    }
+    private PlayerProperties CheckPlayerProperties()
+    {
+        PlayerProperties player = CheckNullPlayerProperties();
+        if (player == null)
+        {
+            player = CheckNearestScorePlayerProperties();
+            if (player == null)
+            {
+                Debug.LogError("null");
+            }
+            return player;  
+        }
+        return player;
+    }
+    /// <summary>
+    /// skor tablosunda ki verileri güncelliyor.
+    /// </summary>
+    private PlayerProperties CheckNullPlayerProperties()
+    {
+        for (int i = 0; i < playerProperties.Length; i++)
+        {
+            if (playerProperties[i] == null)
+            {
+                return playerProperties[i];
+            }
+        }
+        return null;
+    }
+
+    private PlayerProperties CheckNearestScorePlayerProperties()
+    {
+        int minNumber;
+        PlayerProperties minScorePlayer = null;
+        minNumber = int.MaxValue;
+        for (int i = 0; i < playerProperties.Length; i++)
+        {
+            if (playerProperties[i].playerScore < minNumber)
+            {
+                minNumber = playerProperties[i].playerScore;
+                minScorePlayer = playerProperties[i];
+            }
+        }
+        return minScorePlayer;
+    }
+   
+    private void SaveBoard()
+    {
+        PlayerPrefs.SetString("playerName", CheckPlayerProperties().playerName);
+        PlayerPrefs.SetInt("playerScore", CheckPlayerProperties().playerScore);
+
+    }
+    private void WriteAllDataBoard()
+    {
+        CheckPlayerProperties().playerName = PlayerPrefs.GetString("playerName");
+        CheckPlayerProperties().playerScore = PlayerPrefs.GetInt("playerScore");
+    }
+    private void RefreshBoard()
+    {
+        for (int i = 0; i < playerProperties.Length; i++)
+        {
+            players[i].SetPlayerName = playerProperties[i].playerName;
+            players[i].SetScoreText = playerProperties[i].playerScore;
+            players[i].SetNumberText = i + 1;
+        }
+        SaveBoard();
+    }
+
+    public void ClearAllText()
+    {
+        for(int i = 0;i < players.Length;i++)
+        {
+            players[i].SetPlayerName = "";
+            players[i].SetScoreText = 0;
         }
     }
-    public void CloseButton()
+
+    public void PlayerSort()
     {
-        rankingPanel.SetActive(false);
+        int currentMinScore;
+        PlayerProperties currentMinScorePlayer;
+
+        for (int i = 0; i < playerProperties.Length; i++)
+        {
+            currentMinScore = int.MaxValue;
+            currentMinScorePlayer = null;
+            for (int a = 0; a < playerProperties.Length; a++)
+            {
+                if (playerProperties[a].playerName == "" || sortingPlayers.Contains(playerProperties[a]))
+                {
+                    continue;
+                }
+                if (playerProperties[a].playerScore <= currentMinScore)
+                {
+                    currentMinScore = playerProperties[a].playerScore;
+                    currentMinScorePlayer = playerProperties[a];
+                }
+            }
+            if (currentMinScorePlayer != null)
+            {
+                sortingPlayers.Add(currentMinScorePlayer);
+                Debug.Log($"Min Score Player {currentMinScorePlayer.playerName} \n {currentMinScore}");
+            }
+            ClearAllText();
+            SortingApply();
+            int index = 0;
+            foreach (var player in sortingPlayers)
+            {
+                Debug.Log($"{index}. player => {player.playerName}");
+                index++;
+            }
+        }
+    }
+    public void SortingApply()
+    {
+        int index = 0;
+        for (int i =  sortingPlayers.Count -1; i >= 0; i--)
+        {
+            players[index].SetPlayerName = sortingPlayers[i].playerName;
+            players[index].SetScoreText = sortingPlayers[i].playerScore;
+            index++;
+        }
+    }
+    public void OpenRankPanel()
+    {
+        scoreRankingPanel.SetActive(true);
+        if (shopPanel.activeSelf)
+        {
+            startButton.SetActive(false);
+            shopPanel.SetActive(false);
+            restartButton.SetActive(false);
+        }
+        if (scoreRankingPanel.activeSelf)
+        {
+            PlayerSort();
+            restartButton.SetActive(false);
+            startButton.SetActive(false);
+        }
+        else
+        {
+            restartButton.SetActive(true);
+        }
+    }
+    public void CloseRankingPanel()
+    {
+        scoreRankingPanel.SetActive(false);
     }
     public void PanelOrganization()
     {
-        
-        if (rankingPanel.activeSelf)
+        if (scoreRankingPanel.activeSelf)
         {
             shopPanel.SetActive(false);
         }
