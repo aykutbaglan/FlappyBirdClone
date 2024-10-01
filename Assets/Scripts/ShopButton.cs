@@ -9,18 +9,23 @@ public class ShopButton : MonoBehaviour
     public GameObject shopButton;
     public GameObject close;
     public GameObject rankpanel;
+    public GameObject restartButton;
+    public ScoreRanking scoreRanking;
 
     public void ShopOpenButton()
     {
-        shoppanel.SetActive(true);
         if (rankpanel.activeSelf)
         {
             rankpanel.SetActive(false);
         }
-
+        shoppanel.SetActive(true);
+        restartButton.SetActive(false);
+        scoreRanking.startButton.SetActive(false);
     }
     public void CloseMenu()
     {
         shoppanel.SetActive(false);
+        scoreRanking.startButton.SetActive(true);
+        restartButton.SetActive(true);
     }
 }

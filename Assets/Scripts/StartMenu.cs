@@ -12,12 +12,14 @@ public class StartMenu : MonoBehaviour
     public birdController birdController;
     public GameObject rankPanel;
     public GameObject shopPanel;
+    public GameObject restartButton;
+    public GameObject startButton;
 
     public void Start()
     {
         Time.timeScale = 0f;
         startmenu.SetActive(true);
-        highScoreText.SetActive(true);
+        //highScoreText.SetActive(true);
     }
     public void CloseMenu()
     {
@@ -30,5 +32,7 @@ public class StartMenu : MonoBehaviour
     {
         rankPanel.SetActive(false);
         shopPanel.SetActive(false);
+        startButton.SetActive(true);
+        restartButton.SetActive(true);
     }
 }
