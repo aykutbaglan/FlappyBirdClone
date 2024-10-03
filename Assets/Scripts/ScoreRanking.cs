@@ -21,13 +21,19 @@ public class ScoreRanking : MonoBehaviour
     {
         if (playerProperties.Length != players.Length)
         {
-            Application.Quit();
             return;
         }
-        PlayerSort();
         WriteAllDataBoard();
+        PlayerSort();
         RefreshBoard();
     }
+
+    /// <summary>
+    /// CheckNullPlayerProperties() = null kontrolü yapýlýr
+    /// CheckNearestScorePlayerProperties() = dizide ki en küçük elemaný döndürür
+    /// CheckPlayerProperties()  = player a null kontrolü yapýlýr null ise player a en küçük deðer atanýr hala null ise player döndürülür.
+    /// </summary>
+    /// <returns>En uygun Olan player propetiesi geri dönderir!</returns>
     private PlayerProperties CheckPlayerProperties()
     {
         PlayerProperties player = CheckNullPlayerProperties();
@@ -42,6 +48,13 @@ public class ScoreRanking : MonoBehaviour
         }
         return player;
     }
+    /*
+     * 
+     * 
+     * 
+     * 
+     * 
+     */
     /// <summary>
     /// skor tablosunda ki verileri güncelliyor.
     /// </summary>
@@ -78,11 +91,20 @@ public class ScoreRanking : MonoBehaviour
         PlayerPrefs.SetString("playerName", CheckPlayerProperties().playerName);
         PlayerPrefs.SetInt("playerScore", CheckPlayerProperties().playerScore);
 
+
+
+
+        for (int i = 0; i < playerProperties.Length; i++)
+        {
+
+        }
     }
     private void WriteAllDataBoard()
     {
-        CheckPlayerProperties().playerName = PlayerPrefs.GetString("playerName");
-        CheckPlayerProperties().playerScore = PlayerPrefs.GetInt("playerScore");
+        PlayerProperties playerproperties = CheckPlayerProperties();
+        playerproperties.playerName = PlayerPrefs.GetString("playerName");
+        playerproperties.playerScore = PlayerPrefs.GetInt("playerScore");
+        
     }
     private void RefreshBoard()
     {
@@ -94,7 +116,6 @@ public class ScoreRanking : MonoBehaviour
         }
         SaveBoard();
     }
-
     public void ClearAllText()
     {
         for(int i = 0;i < players.Length;i++)
@@ -161,6 +182,8 @@ public class ScoreRanking : MonoBehaviour
         }
         if (scoreRankingPanel.activeSelf)
         {
+            WriteAllDataBoard();
+            RefreshBoard();
             PlayerSort();
             restartButton.SetActive(false);
             startButton.SetActive(false);

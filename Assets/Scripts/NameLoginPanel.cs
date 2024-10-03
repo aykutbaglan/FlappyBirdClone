@@ -9,7 +9,9 @@ public class NameLoginPanel : MonoBehaviour
     public Button saveButton;
     public TMP_InputField inputname;
     public TextMeshProUGUI infoText;
+    public ScoreBoardManager scoreBoardManager;
     private bool loginCompleated;
+    [SerializeField] private PlayerProperties mainPlayer;
 
     private void OnEnable()
     {
@@ -39,7 +41,9 @@ public class NameLoginPanel : MonoBehaviour
             loginCompleated = false;
             return;
         }
-        PlayerPrefs.SetString("playerName",inputname.text);
+        //PlayerPrefs.SetString("playerName",inputname.text);
         loginCompleated = true;
+        scoreBoardManager.SaveScoreBoardData(mainPlayer.playerScore, inputname.text);
+        Debug.Log("asdsasdsasad:" +inputname.text);
     }
 }
