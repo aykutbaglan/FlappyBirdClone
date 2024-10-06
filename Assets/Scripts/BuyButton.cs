@@ -6,14 +6,14 @@ using UnityEngine.UI;
 
 public class BuyButton : MonoBehaviour
 {
-    public Button button;
+    public Button birdButton;
     public TextMeshProUGUI buttonText;
 
     private void Awake()
     {
-        if (button == null)
+        if (birdButton == null)
         {
-            button = GetComponentInChildren<Button>();
+            birdButton = GetComponentInChildren<Button>();
         }
         if (buttonText == null)
         {

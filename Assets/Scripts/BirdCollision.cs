@@ -8,7 +8,6 @@ public class BirdCollision : MonoBehaviour
     public GameObject gameovermenu;
     public GameManager gameManager;
 
-
     private void Awake()
     {
         if (gameManager == null)
@@ -16,7 +15,6 @@ public class BirdCollision : MonoBehaviour
             gameManager = FindObjectOfType<GameManager>();
         }
     }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag =="obstacle")

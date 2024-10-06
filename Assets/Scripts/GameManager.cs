@@ -6,23 +6,24 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public StartMenu startmenu;
-    public GameObject startMenu;
+    [SerializeField] private PlayerProperties mainPlayer;
+    public StartMenu startMenu;
+    public GameObject startMenuGo;
     public GameObject gameoverMenu;
-    public GameObject highScoreTxt;
+    public GameObject highScoreTxtGo;
     public Button startButton;
-    public GameObject startButtonn;
+    public GameObject startButtonGo;
     public Button restartButton;
-    public GameObject restartButtonn;
-    public GameObject interactionButton;
-    public PlayerProperties playerProperties;
+    public GameObject restartButtonGo;
+    public GameObject interactionButtonGo;
     public NameLoginPanel nameLoginPanel;
-    public GameObject nameLoginPanell;
-    public GameObject scoreRankingPanel;
-    public GameObject shopPanel;
+    public GameObject nameLoginPanelGo;
+    public GameObject scoreRankingPanelGo;
+    public GameObject shopPanelGo;
     public Button scoresButton;
+    public Button closeButton;
 
-    ScoreBoardManager scoreBoardManager;
+    public ScoreBoardManager scoreBoardManager;
 
     private const string GAME_STARTED = "gameStarted";
 
@@ -51,7 +52,6 @@ public class GameManager : MonoBehaviour
             StartGame();
         }
     }
-
     private void OnDisable()
     {
         scoresButton.onClick.RemoveListener(OnScoresButtonClicked);
@@ -64,84 +64,73 @@ public class GameManager : MonoBehaviour
     }
     public void ShowStartMenu() 
     {
-        startMenu.SetActive(true);
+        startMenuGo.SetActive(true);
         gameoverMenu.SetActive(false);
-        interactionButton.SetActive(true);
+        interactionButtonGo.SetActive(true);
         startButton.interactable = true;
         Time.timeScale = 0f;
-        if(playerProperties.playerName == "")
-        if (!PlayerPrefs.HasKey("playerName"))
-        {
-            //nameLoginPanell.SetActive(true);
-        }
-        else
-        {
-            //inputNamePanel.SetActive(false);
-        }
     }
     public void StartGame()
     {
-        startMenu.SetActive(false);
+        startMenuGo.SetActive(false);
         gameoverMenu.SetActive(false);
-        interactionButton.SetActive(false);
+        interactionButtonGo.SetActive(false);
         Time.timeScale = 1.0f;
-        nameLoginPanell.SetActive(false);
+        nameLoginPanelGo.SetActive(false);
     }
     public void GameOver()
     {
         gameoverMenu.SetActive(true);
-        //highScoreTxt.SetActive(true);
-        interactionButton.SetActive(true);
+        interactionButtonGo.SetActive(true);
         Time.timeScale = 0f;
-        nameLoginPanell.SetActive(true);
-        //scoreBoardManager.ShowNameLoginPanel();
+        scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
         PlayerPrefs.SetInt(GAME_STARTED, 1);
-        if (startmenu.rankPanel == true || startmenu.shopPanel == true)
+        if (scoreRankingPanelGo == true || shopPanelGo == true)
         {
-            startmenu.rankPanel.SetActive(false);
-            startmenu.shopPanel.SetActive(false);
-            restartButtonn.SetActive(false);
+            scoreRankingPanelGo.SetActive(false);
+            shopPanelGo.SetActive(false);
+            restartButtonGo.SetActive(false);
         }
     }
     public void OpenRankPanel()
     {
-        scoreRankingPanel.SetActive(true);
-        if (shopPanel.activeSelf)
+        scoreRankingPanelGo.SetActive(true);
+        if (shopPanelGo.activeSelf)
         {
-            startButtonn.SetActive(false);
-            shopPanel.SetActive(false);
-            restartButtonn.SetActive(false);
+            startButtonGo.SetActive(false);
+            shopPanelGo.SetActive(false);
+            restartButtonGo.SetActive(false);
         }
-        if (scoreRankingPanel.activeSelf)
+        if (scoreRankingPanelGo.activeSelf)
         {
-            restartButtonn.SetActive(false);
-            startButtonn.SetActive(false);
+            restartButtonGo.SetActive(false);
+            startButtonGo.SetActive(false); 
         }
         else
         {
-            restartButtonn.SetActive(true);
+            restartButtonGo.SetActive(true);
         }
     }
     public void CloseRankingPanel()
     {
-        scoreRankingPanel.SetActive(false);
+        scoreRankingPanelGo.SetActive(false);
     }
     public void PanelOrganization()
     {
-        if (scoreRankingPanel.activeSelf)
+        if (scoreRankingPanelGo.activeSelf)
         {
-            shopPanel.SetActive(false);
+            shopPanelGo.SetActive(false);
         }
     }
     private void OnScoresButtonClicked()
     {
-        if (scoreRankingPanel.activeSelf)
+        if (scoreRankingPanelGo.activeSelf)
         {
-            startButtonn.SetActive(false);
+            startButtonGo.SetActive(false);
         }
         else
         {
-            startButtonn.SetActive(true);
+            startButtonGo.SetActive(true);
         }
     }
     private void RestartGame()

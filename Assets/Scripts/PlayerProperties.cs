@@ -12,12 +12,10 @@ public class PlayerProperties : MonoBehaviour
         this.playerName = playerName;
         this.playerScore = playerScore;
     }
-
     public PlayerProperties()
     {
 
     }
-
     public void Clear()
     {
         playerName = string.Empty;

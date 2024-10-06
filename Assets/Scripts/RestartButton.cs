@@ -12,7 +12,6 @@ public class RestartButton : MonoBehaviour
     }
     public void Restart()
     {
-        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(1);
     }
 }

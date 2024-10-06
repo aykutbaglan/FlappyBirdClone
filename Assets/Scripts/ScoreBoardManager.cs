@@ -19,20 +19,16 @@ public class ScoreBoardManager : MonoBehaviour
             scorePlayers[i].SetNumberText = (i + 1);
             scorePlayers[i].SetPlayerName = PlayerPrefs.GetString("ScoreBoardName" + i);
             scorePlayers[i].SetScoreText = PlayerPrefs.GetInt("ScoreBoardScore" +i);
-            Debug.Log(PlayerPrefs.GetString("ScoreBoardName" + i));
-
         }
-        Debug.Log("Loadddddd");
-
     }
-    public void SaveScoreBoardData(int score , string name) //öldüðümüz zaman scoreboard a girmeye hakkýmýz varmý diye sorulacak fonksiyon un benzeri
+    public void SaveScoreBoardData(int score , string name)
     {
         int minScore = PlayerPrefs.GetInt("ScoreBoardScore9");
         if (score > minScore)
         {
             int index = 9;
             nameLoginPanel.SetActive(true);
-            if (PlayerPrefs.GetInt("ScoreBoardScore0") <= score)
+            if (PlayerPrefs.GetInt("ScoreBoardScore0") < score)
             {
                 index = 0;
             }
@@ -47,29 +43,28 @@ public class ScoreBoardManager : MonoBehaviour
                     }
                 }
             }
-
             ShiftScores(index);
             SaveCurrentScore(score,name,index);
-            Debug.Log("SaveScoreBoardData:" + name +" " + score +" " + index);
-        }else//Score u kaydedilmeyecek
+        }
+        else
         {
 
         }
         LoadScoreBoardData();
     }
-    public void ShowNameLoginPanel()
+    public void ShowNameLoginPanel(int score, string name)
     {
-        //nameLoginPanel.SetActive(true);
-        //if (scorePlayers != null)
-        //{
-        //    nameLoginPanel.SetActive(true);
-        //}
-        //else
-        //{
-        //    nameLoginPanel.SetActive(false);
-        //}
+        int minscores = PlayerPrefs.GetInt("ScoreBoardScore9");
+        if (score > minscores)
+        {
+            nameLoginPanel.SetActive(true);
+        }
+        else
+        {
+            nameLoginPanel.SetActive(false);
+        }
     }
-public void ShiftScores(int index)
+    public void ShiftScores(int index)
     {
         for (int i = scorePlayers.Length - 1; i > index; i--)
         {

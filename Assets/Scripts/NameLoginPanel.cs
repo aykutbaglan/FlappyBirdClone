@@ -11,7 +11,7 @@ public class NameLoginPanel : MonoBehaviour
     public TextMeshProUGUI infoText;
     public ScoreBoardManager scoreBoardManager;
     private bool loginCompleated;
-    [SerializeField] private PlayerProperties mainPlayer;
+    [SerializeField] private PlayerProperties _mainPlayer;
 
     private void OnEnable()
     {
@@ -23,11 +23,6 @@ public class NameLoginPanel : MonoBehaviour
                 gameObject.SetActive(false);
             }
         } );
-    }
-
-    private void Start()
-    {
-        
     }
     private void OnDisable()
     {
@@ -41,9 +36,7 @@ public class NameLoginPanel : MonoBehaviour
             loginCompleated = false;
             return;
         }
-        //PlayerPrefs.SetString("playerName",inputname.text);
         loginCompleated = true;
-        scoreBoardManager.SaveScoreBoardData(mainPlayer.playerScore, inputname.text);
-        Debug.Log("asdsasdsasad:" +inputname.text);
+        scoreBoardManager.SaveScoreBoardData(_mainPlayer.playerScore, inputname.text);
     }
 }

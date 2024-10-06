@@ -5,27 +5,21 @@ using UnityEngine.UI;
 
 public class ShopButton : MonoBehaviour
 {
-    public GameObject shoppanel;
-    public GameObject shopButton;
-    public GameObject close;
-    public GameObject rankpanel;
-    public GameObject restartButton;
-    public ScoreRanking scoreRanking;
-
+    public GameManager gameManager;
     public void ShopOpenButton()
     {
-        if (rankpanel.activeSelf)
+        if (gameManager.scoreRankingPanelGo.activeSelf)
         {
-            rankpanel.SetActive(false);
+            gameManager.scoreRankingPanelGo.SetActive(false);
         }
-        shoppanel.SetActive(true);
-        restartButton.SetActive(false);
-        scoreRanking.startButton.SetActive(false);
+        gameManager.shopPanelGo.SetActive(true);
+        gameManager.restartButtonGo.SetActive(false);
+        gameManager.startButtonGo.SetActive(false);
     }
     public void CloseMenu()
     {
-        shoppanel.SetActive(false);
-        scoreRanking.startButton.SetActive(true);
-        restartButton.SetActive(true);
+        gameManager.shopPanelGo.SetActive(false);
+        gameManager.startButtonGo.SetActive(true);
+        gameManager.restartButtonGo.SetActive(true);
     }
 }

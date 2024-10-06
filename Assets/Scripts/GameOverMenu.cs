@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class GameOverMenu : MonoBehaviour
 {
-    public GameObject highScoreText;
-    public ScoreRanking scoreRanking;
+    public GameManager gameManager;
 
     private void Start()
     {
-        //highScoreText.SetActive(true);
-        scoreRanking.restartButton.SetActive(true);
+        gameManager.restartButtonGo.SetActive(true);
     }
 }

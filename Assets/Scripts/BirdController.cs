@@ -7,42 +7,31 @@ public class birdController : MonoBehaviour
     public float speed = 5f;
     public float jumpingForce;
     public Transform bird;
-    private Rigidbody2D rb;
-
-    // Rotasyon için deðiþkenler
-    private float targetRotation;
-    public float smoothRotationSpeed = 12f; // Yumuþak geçiþ için hýz
-
+    public float smoothRotationSpeed = 12f;
+    private Rigidbody2D _rb;
+    private float _targetRotation;
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
-
     private void Update()
     {
-        // Kuþun saða doðru sürekli hareket etmesi
         bird.position += Vector3.right * speed * Time.deltaTime;
 
-        // Mouse týklamasýyla kuþun zýplamasý ve z rotasyonunu ayarlama
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            rb.velocity = Vector2.up * -jumpingForce;
-            targetRotation = -20.0f; // Aþaðý doðru bakýþ rotasyonu
+            _rb.velocity = Vector2.up * -jumpingForce;
+            _targetRotation = -20.0f;
         }
-
-        // Kuþ yukarý doðru çýkarken z rotasyonunu +20 yapmak
-        if (rb.velocity.y > 0)
+        if (_rb.velocity.y > 0)
         {
-            targetRotation = 20.0f; // Yukarý doðru bakýþ rotasyonu
+            _targetRotation = 20.0f;
         }
-        // Kuþ aþaðý düþerken z rotasyonunu -20 yapmak
-        else if (rb.velocity.y < 0)
+        else if (_rb.velocity.y < 0)
         {
-            targetRotation = -20.0f; // Aþaðý doðru bakýþ rotasyonu
+            _targetRotation = -20.0f;
         }
-
-        // Mevcut rotasyonu hedef rotasyona doðru yumuþak bir þekilde geçiþ yap
-        float currentZRotation = Mathf.LerpAngle(transform.eulerAngles.z, targetRotation, smoothRotationSpeed * Time.deltaTime);
+        float currentZRotation = Mathf.LerpAngle(transform.eulerAngles.z, _targetRotation, smoothRotationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, currentZRotation);
     }
 }
