@@ -23,7 +23,7 @@ public class StartMenu : MonoBehaviour
     public void ClosePanel()
     {
         gameManager.scoreRankingPanelGo.SetActive(false);
-        gameManager.shopPanelGo.SetActive(false);
+        gameManager.Shop_Birds.SetActive(false);
         gameManager.startButtonGo.SetActive(true);
         gameManager.restartButtonGo.SetActive(true);
     }

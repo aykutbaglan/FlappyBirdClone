@@ -12,13 +12,13 @@ public class ShopButton : MonoBehaviour
         {
             gameManager.scoreRankingPanelGo.SetActive(false);
         }
-        gameManager.shopPanelGo.SetActive(true);
+        gameManager.Shop_Birds.SetActive(true);
         gameManager.restartButtonGo.SetActive(false);
         gameManager.startButtonGo.SetActive(false);
     }
     public void CloseMenu()
     {
-        gameManager.shopPanelGo.SetActive(false);
+        gameManager.Shop_Birds.SetActive(false);
         gameManager.startButtonGo.SetActive(true);
         gameManager.restartButtonGo.SetActive(true);
     }

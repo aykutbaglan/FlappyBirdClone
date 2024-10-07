@@ -19,9 +19,8 @@ public class GameManager : MonoBehaviour
     public NameLoginPanel nameLoginPanel;
     public GameObject nameLoginPanelGo;
     public GameObject scoreRankingPanelGo;
-    public GameObject shopPanelGo;
+    public GameObject Shop_Birds;
     public Button scoresButton;
-    public Button closeButton;
 
     public ScoreBoardManager scoreBoardManager;
 
@@ -64,6 +63,7 @@ public class GameManager : MonoBehaviour
     }
     public void ShowStartMenu() 
     {
+        highScoreTxtGo.SetActive(false);
         startMenuGo.SetActive(true);
         gameoverMenu.SetActive(false);
         interactionButtonGo.SetActive(true);
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     }
     public void StartGame()
     {
+        highScoreTxtGo.SetActive(true);
         startMenuGo.SetActive(false);
         gameoverMenu.SetActive(false);
         interactionButtonGo.SetActive(false);
@@ -85,20 +86,20 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
         PlayerPrefs.SetInt(GAME_STARTED, 1);
-        if (scoreRankingPanelGo == true || shopPanelGo == true)
+        if (scoreRankingPanelGo == true || Shop_Birds == true)
         {
             scoreRankingPanelGo.SetActive(false);
-            shopPanelGo.SetActive(false);
+            Shop_Birds.SetActive(false);
             restartButtonGo.SetActive(false);
         }
     }
     public void OpenRankPanel()
     {
         scoreRankingPanelGo.SetActive(true);
-        if (shopPanelGo.activeSelf)
+        if (Shop_Birds.activeSelf)
         {
             startButtonGo.SetActive(false);
-            shopPanelGo.SetActive(false);
+            Shop_Birds.SetActive(false);
             restartButtonGo.SetActive(false);
         }
         if (scoreRankingPanelGo.activeSelf)
@@ -109,6 +110,7 @@ public class GameManager : MonoBehaviour
         else
         {
             restartButtonGo.SetActive(true);
+            startButtonGo.SetActive(true);
         }
     }
     public void CloseRankingPanel()
@@ -119,7 +121,7 @@ public class GameManager : MonoBehaviour
     {
         if (scoreRankingPanelGo.activeSelf)
         {
-            shopPanelGo.SetActive(false);
+            Shop_Birds.SetActive(false);
         }
     }
     private void OnScoresButtonClicked()

@@ -15,7 +15,9 @@ public class ShopManager : MonoBehaviour
     public TMP_Text goldtxt;
     public int totalCoins = 0;
     public Button startButton;
+    private GameManager gameManager;
     private bool[] _birdPurchased;
+    
 
     private void Start()
     {
@@ -25,17 +27,28 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < birds.Length; i++)
         {
             _birdPurchased[i] = PlayerPrefs.GetInt("BirdPurchased_" + i, 0) == 1;
-            birdsimg[i].SetActive(false);
+            //birdsimg[i].SetActive(false);
+            
         }
-
         int savedBirdIndex = PlayerPrefs.GetInt("SelectedBirdIndex", -1);
         if (savedBirdIndex != -1)
         {
             BirdChange(savedBirdIndex);
+            startButton.gameObject.SetActive(true);  // Kuþ seçildiyse startButton aktif olmalý
+            for (int i = 0; i < birdsimg.Length; i++)
+            {
+                birdsimg[i].SetActive(false);
+            }
+            birdsimg[savedBirdIndex].SetActive(true);
         }
-        startButton.interactable = savedBirdIndex != -1;
+        else
+        {
+            startButton.gameObject.SetActive(false); // Kuþ seçilmediyse startButton gizlenmeli
+        }
+        //startButton.interactable = savedBirdIndex != -1;
         UpdateShopButtons();
         UpdateGoldText();
+
     }
     public void CollectCoin(int amount)
     {
@@ -79,10 +92,6 @@ public class ShopManager : MonoBehaviour
                     PlayerPrefs.SetInt("TotalCoins", totalCoins);
                     _birdPurchased[birdIndex] = true;
                     PlayerPrefs.SetInt("BirdPurchased_" + birdIndex, 1);
-                }
-                else
-                {
-
                 }
                 UpdateGoldText();
                 for (int i = 0; i < birdsimg.Length; i++)

@@ -13,6 +13,7 @@ public class RestartButton : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(1);
+        
     }
 }
 
