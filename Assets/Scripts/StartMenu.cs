@@ -7,7 +7,6 @@ public class StartMenu : MonoBehaviour
 {
     public GameManager gameManager;
     public birdController birdController;
-    public ShopManager shopManager;
 
     public void Start()
     {
@@ -25,18 +24,7 @@ public class StartMenu : MonoBehaviour
     {
         gameManager.scoreRankingPanelGo.SetActive(false);
         gameManager.Shop_Birds.SetActive(false);
+        gameManager.startButtonGo.SetActive(true);
         gameManager.restartButtonGo.SetActive(true);
-        for (int i = 0; i < shopManager.buttons.Length; i++)
-        {
-            if (PlayerPrefs.GetInt("BirdPurchased_" + i) == 1) // Bu acýklanacak!
-            {
-                gameManager.startButtonGo.SetActive(true);
-                return;
-            }
-            else
-            {
-                gameManager.startButtonGo.SetActive(false);
-            }
-        }
     }
 }
