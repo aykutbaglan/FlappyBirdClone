@@ -15,7 +15,7 @@ public class ShopManager : MonoBehaviour
     public TMP_Text goldtxt;
     public int totalCoins = 0;
     public Button startButton;
-    private GameManager gameManager;
+    //public GameManager gameManager;
     private bool[] _birdPurchased;
     
 
@@ -34,7 +34,7 @@ public class ShopManager : MonoBehaviour
         if (savedBirdIndex != -1)
         {
             BirdChange(savedBirdIndex);
-            startButton.gameObject.SetActive(true);  // Kuþ seçildiyse startButton aktif olmalý
+            //startButton.gameObject.SetActive(true);  // Kuþ seçildiyse startButton aktif olmalý
             for (int i = 0; i < birdsimg.Length; i++)
             {
                 birdsimg[i].SetActive(false);
@@ -48,7 +48,6 @@ public class ShopManager : MonoBehaviour
         //startButton.interactable = savedBirdIndex != -1;
         UpdateShopButtons();
         UpdateGoldText();
-
     }
     public void CollectCoin(int amount)
     {

@@ -1,3 +1,4 @@
+using Game.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class BirdCollision : MonoBehaviour
     public GameObject bird;
     public GameObject gameovermenu;
     public GameManager gameManager;
+    [SerializeField] private EndGameMenu endGameMenu;
 
     private void Awake()
     {
@@ -20,6 +22,7 @@ public class BirdCollision : MonoBehaviour
         if (other.gameObject.tag =="obstacle")
         {
             gameManager.GameOver();
+            endGameMenu.OpenMenu();
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

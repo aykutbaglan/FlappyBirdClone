@@ -9,6 +9,6 @@ public class GameOverMenu : MonoBehaviour
 
     private void Start()
     {
-        gameManager.restartButtonGo.SetActive(true);
+        //gameManager.restartButtonGo.SetActive(true);
     }
 }
