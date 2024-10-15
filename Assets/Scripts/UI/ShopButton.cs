@@ -16,11 +16,10 @@ public class ShopButton : MonoBehaviour
     {
         _canvasGroup = GetComponent<CanvasGroup>();
     }
-    public void ShopOpenButton()
+    public void ShopOpenButton() // burada startmenu.OpenMenu olduðu için endgame de buttonlara bastýðýmýz zaman startmenu açýlýyor
     {
         _canvasShopMenu.OpenMenu();
-        _startMenu.OpenMenu();
-
+        _startMenu.CloseMenu();
     }
     public void CloseMenu()
     {

@@ -7,6 +7,7 @@ namespace Game.UI
     [RequireComponent(typeof(CanvasGroup))]
     public class InGameMenu : MonoBehaviour
     {
+        public bool restartActiveButtons => _canvasGroup.alpha > 0.5f;
         private CanvasGroup _canvasGroup;
         [SerializeField] private StartMenu _startMenu;
         [SerializeField] private EndGameMenu endGameMenu;
@@ -22,14 +23,13 @@ namespace Game.UI
         {
             scoreCanvas.CloseMenu();
             _shopButton.CloseMenu();
-
         }
         public void OpenMenu()
         {
             _canvasGroup.alpha = 1;
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
-            _canvasMainMenu.CloseMenu();
+            _canvasMainMenu.RestartGameButtonsOff();
         }
         public void CloseMenu()
         {

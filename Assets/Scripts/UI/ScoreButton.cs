@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ScoreButton : MonoBehaviour
 {
     [SerializeField] private ScoreCanvas _scoreCanvas;
+    [SerializeField] private Button _scoreButton;
 
     public void OpenScoreMenu()
     {

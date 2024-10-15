@@ -9,8 +9,11 @@ namespace Game.UI
     [RequireComponent(typeof(CanvasGroup))]
     public class ScoreCanvas : MonoBehaviour
     {
+        public StartMenu startMenu;
+        [SerializeField] private CanvasShopMenu _canvasShopMenu;
         private CanvasGroup _canvasGroup;
-        
+        public bool IsActiveStartAlpha => _canvasGroup.alpha > 0.5f;
+
         private void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
@@ -21,6 +24,8 @@ namespace Game.UI
             _canvasGroup.alpha = 1.0f;
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
+            _canvasShopMenu.CloseMenu();
+            startMenu.OpenMenu();
         }
         public void CloseMenu()
         {

@@ -9,9 +9,10 @@ namespace Game.UI
     public class StartMenu : MonoBehaviour
     {
         public static bool isRestarted = false;
-        [SerializeField] private Button startButton;
-        [SerializeField] private ScoreCanvas scoreCanvas;
+        public Button _startButton;
+        [SerializeField] private ScoreCanvas _scoreCanvas;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
+        [SerializeField] private InGameMenu _inGameMenu;
         private CanvasGroup _canvasGroup;
 
         private void Awake()
@@ -23,56 +24,57 @@ namespace Game.UI
             if (!isRestarted)
             {
                 OpenMenu();
-                Debug.Log("StartMenu Açýldý");
             }
             else
             {
                 CloseMenu();
                 isRestarted = false;
-                Debug.Log("StartMenu Kapatýldý");
             }
         }
         private void OnEnable()
         {
-            startButton.onClick.AddListener(OnStartButtonClicked);
+            _startButton.onClick.AddListener(OnStartButtonClicked);
         }
         private void OnDisable()
         {
-            startButton.onClick.RemoveListener(OnStartButtonClicked);
+            _startButton.onClick.RemoveListener(OnStartButtonClicked);
         }
         public void OpenMenu()
         {
             _canvasGroup.alpha = 1;
-            _canvasGroup.interactable = true;
             Time.timeScale = 0f;
-            if (_canvasShopMenu.isCanvasActive == true)
+            if (_canvasShopMenu.IsCanvasActive == true)
             {
                 _canvasGroup.blocksRaycasts = false;
-                Debug.Log("BlocksRaycasts Deactive");
             }
             else
             {
                 _canvasGroup.blocksRaycasts = true;
-                Debug.Log("BlocksRaycasts Active");
             }
-            
+            if (_scoreCanvas.IsActiveStartAlpha == true || _canvasShopMenu.IsStartButtonInteractable == true)
+            {
+                _canvasGroup.interactable = false;
+            }
+            else
+            {
+                _canvasGroup.interactable = true;
+
+            }
         }
         public void CloseMenu()
         {
-            Time.timeScale = 1f;
+            //Time.timeScale = 1f;
             _canvasGroup.alpha = 0;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
         }
-        
         private void OnStartButtonClicked()
         {
             PlayerPrefs.SetInt("isGameStarted", 1);
             PlayerPrefs.Save();
+            _inGameMenu.OpenMenu();
             CloseMenu();
             Time.timeScale = 1f;
         }
-        
-        
     }
 }

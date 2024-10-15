@@ -14,6 +14,10 @@ namespace Game.UI
         [SerializeField] private StartMenu _startMenu;
         [SerializeField] private InGameMenu _inGameMenu;
         [SerializeField] private ScoreCanvas _scoreCanvas;
+        [SerializeField] private ShopButton _shopButton;
+        [SerializeField] private ScoreButton _scoreButton;
+        [SerializeField] private CanvasMainMenu _canvasMainMenu;
+
 
         private void Awake()
         {
@@ -43,12 +47,16 @@ namespace Game.UI
             _canvasGroup.alpha = 1f;
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
+            _canvasMainMenu.OpenMenu();
             _inGameMenu.CloseMenu();
         }
         private void OnRestartButtonClicked()
         {
             StartMenu.isRestarted = true;
+            _shopButton.CloseMenu();
+            _scoreButton.CloseScoreMenu();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _inGameMenu.OpenMenu();           
         }
         private void CloseMenu()
         {
