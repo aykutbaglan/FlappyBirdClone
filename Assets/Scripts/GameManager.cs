@@ -29,8 +29,6 @@ public class GameManager : MonoBehaviour
     //private void OnEnable()
     //{
     //    scoresButton.onClick.AddListener(OnScoresButtonClicked);
-    //    //startButton.onClick.AddListener(OnstartButtonClicked);
-    //    //restartButton.onClick.AddListener(OnRestartButtonClicked);
     //}
     private void Start()
     {
@@ -51,12 +49,6 @@ public class GameManager : MonoBehaviour
             StartGame();
         }
     }
-    //private void OnDisable()
-    //{
-    //    scoresButton.onClick.RemoveListener(OnScoresButtonClicked);
-    //    //startButton.onClick.RemoveListener(OnstartButtonClicked);
-    //    //restartButton.onClick.RemoveListener(OnRestartButtonClicked);
-    //}
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt(GAME_STARTED, 0);
@@ -64,26 +56,14 @@ public class GameManager : MonoBehaviour
     public void ShowStartMenu() 
     {
         highScoreTxtGo.SetActive(false);
-        //startMenuGo.SetActive(true);
-        //gameoverMenu.SetActive(false);
-        //interactionButtonGo.SetActive(true);
-        //startButton.interactable = true;
-        Time.timeScale = 0f;
     }
     public void StartGame()
     {
         highScoreTxtGo.SetActive(true);
-        //startMenuGo.SetActive(false);
-        //gameoverMenu.SetActive(false);
-        //interactionButtonGo.SetActive(false);
-        Time.timeScale = 1.0f;
         nameLoginPanelGo.SetActive(false);
     }
     public void GameOver()
     {
-        //gameoverMenu.SetActive(true);
-        //interactionButtonGo.SetActive(true);
-        Time.timeScale = 0f;
         scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
         PlayerPrefs.SetInt(GAME_STARTED, 1);
         //if (scoreRankingPanelGo == true || Shop_Birds == true)
@@ -113,38 +93,3 @@ public class GameManager : MonoBehaviour
     //        startButtonGo.SetActive(true);
     //    }
     }
-    //public void CloseRankingPanel()
-    //{
-    //    scoreRankingPanelGo.SetActive(false);
-    //}
-    //public void PanelOrganization()
-    //{
-    //    if (scoreRankingPanelGo.activeSelf)
-    //    {
-    //        Shop_Birds.SetActive(false);
-    //    }
-    //}
-    //private void OnScoresButtonClicked()
-    //{
-    //    if (scoreRankingPanelGo.activeSelf)
-    //    {
-    //        startButtonGo.SetActive(false);
-    //    }
-    //    else
-    //    {
-    //        startButtonGo.SetActive(true);
-    //    }
-    //}
-    ////private void RestartGame()
-    ////{
-    ////    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    ////}
-    //public void OnstartButtonClicked()
-    //{
-    //    StartGame();
-    //}
-    //public void OnRestartButtonClicked()
-    //{
-    //    RestartGame();
-    //}
-
