@@ -29,7 +29,6 @@ namespace Game.UI
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
             _scoreCanvas.CloseMenu();
-            
         }
         public void CloseMenu()
         {

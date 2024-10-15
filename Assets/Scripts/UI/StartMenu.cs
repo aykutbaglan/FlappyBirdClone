@@ -63,7 +63,6 @@ namespace Game.UI
         }
         public void CloseMenu()
         {
-            //Time.timeScale = 1f;
             _canvasGroup.alpha = 0;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;

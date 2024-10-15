@@ -9,7 +9,7 @@ namespace Game.UI
     public class CanvasMainMenu : MonoBehaviour
     {
         [SerializeField] private StartMenu _startMenu;
-        [SerializeField] private ShopButton _shopButton;
+        //[SerializeField] private ShopButton _shopButton;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
         [SerializeField] private ScoreCanvas _canvasScoreMenu;
         public CanvasGroup _canvasGroup;

@@ -26,6 +26,7 @@ namespace Game.UI
             _canvasGroup.blocksRaycasts = true;
             _canvasShopMenu.CloseMenu();
             startMenu.OpenMenu();
+
         }
         public void CloseMenu()
         {
