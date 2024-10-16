@@ -2394,12 +2394,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPlayer: {fileID: 139665137}
+  endGameMenu: {fileID: 1326572001}
+  startMenu: {fileID: 1788282949}
   highScoreTxtGo: {fileID: 4508142060094996355}
   startButtonGo: {fileID: 5731630289760765325}
   nameLoginPanel: {fileID: 7772733524239301817}
   nameLoginPanelGo: {fileID: 7270657929045361274}
   scoreRankingPanelGo: {fileID: 1275581060}
   scoresButton: {fileID: 429377820}
+  gameover: 0
   scoreBoardManager: {fileID: 3355140330583601255}
 --- !u!4 &596880056
 Transform:
@@ -3280,7 +3283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 1543, y: 1880}
+  m_AnchoredPosition: {x: 1738.6, y: 1880}
   m_SizeDelta: {x: 59.4383, y: 62.2166}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &896861398
@@ -3497,6 +3500,7 @@ MonoBehaviour:
   startMenu: {fileID: 1788282949}
   _shopMenu: {fileID: 914710966}
   _canvasMainMenu: {fileID: 1770117559}
+  _shopButton: {fileID: 914710966}
   _scoreCanvas: {fileID: 1275581065}
 --- !u!225 &914710965
 CanvasGroup:
@@ -3522,11 +3526,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984ae767467fe4343ab3e9cfaf192b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CloseShopButton: {fileID: 896861396}
   _shopButton: {fileID: 1972645379505657523}
   _canvasShopMenu: {fileID: 914710964}
   _canvasMainMenu: {fileID: 1770117559}
   _startMenu: {fileID: 1788282949}
-  CloseShopButton: {fileID: 896861396}
+  _gameManager: {fileID: 596880055}
 --- !u!1 &992589667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4194,7 +4199,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1326572001}
         m_TargetAssemblyTypeName: Game.UI.EndGameMenu, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OnRestartButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4730,6 +4735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMenu: {fileID: 1788282949}
   _canvasShopMenu: {fileID: 914710964}
+  _scoreButton: {fileID: 1275581067}
 --- !u!225 &1275581066
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4754,10 +4760,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39617e2d5e85fe94f9e3d1b790d2101a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _closeScoreButton: {fileID: 6137942210081151694}
   _scoreCanvas: {fileID: 1275581065}
   _scoreButton: {fileID: 429377820}
   _startMenu: {fileID: 1788282949}
-  _closeScoreButton: {fileID: 6137942210081151694}
+  _gameManager: {fileID: 596880055}
 --- !u!1 &1286299752
 GameObject:
   m_ObjectHideFlags: 0
@@ -4966,6 +4973,7 @@ MonoBehaviour:
   _shopButton: {fileID: 914710966}
   _scoreButton: {fileID: 1275581067}
   _canvasMainMenu: {fileID: 1770117559}
+  _gameManager: {fileID: 596880055}
 --- !u!225 &1326572002
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5988,9 +5996,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816814917}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1881488256
 GameObject:
@@ -6449,7 +6457,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shop
+  m_text: X
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6476,8 +6484,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 15
-  m_fontSizeBase: 15
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9636,7 +9644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Score
+  m_text: X
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9663,8 +9671,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.05
-  m_fontSizeBase: 17.05
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12129,6 +12137,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5246338498387328531, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: inGameMenu
+      value: 
+      objectReference: {fileID: 1816814922}
     - target: {fileID: 5246338498387328531, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
       propertyPath: endGameMenu
       value: 

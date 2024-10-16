@@ -8,7 +8,7 @@ public class RestartButton : MonoBehaviour
     public bool startgame;
     private void Start()
     {
-        Time.timeScale = 1.0f;
+        GameManager.GameResume();
     }
     public void Restart()
     {

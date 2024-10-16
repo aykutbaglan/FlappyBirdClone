@@ -9,6 +9,7 @@ public class BirdCollision : MonoBehaviour
     public GameObject gameovermenu;
     public GameManager gameManager;
     [SerializeField] private EndGameMenu endGameMenu;
+    [SerializeField] private InGameMenu inGameMenu;
 
     private void Awake()
     {
@@ -21,8 +22,8 @@ public class BirdCollision : MonoBehaviour
     {
         if (other.gameObject.tag =="obstacle")
         {
+            StartMenu.GameFail = true;
             gameManager.GameOver();
-            endGameMenu.OpenMenu();
         }
     }
     private void OnTriggerEnter2D(Collider2D other)

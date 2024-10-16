@@ -11,6 +11,7 @@ namespace Game.UI
         public StartMenu startMenu;
         [SerializeField] private ShopButton _shopMenu;
         [SerializeField] private CanvasMainMenu _canvasMainMenu;
+        [SerializeField] private ShopButton _shopButton;
         [SerializeField] private ScoreCanvas _scoreCanvas;
         public bool IsCanvasActive => _canvasGroup.alpha > 0.5f;
         public bool IsStartButtonInteractable => _canvasGroup.alpha > 0.5f;
@@ -35,6 +36,7 @@ namespace Game.UI
             _canvasGroup.alpha = 0;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
+            _shopButton.CloseShopButton.SetActive(false);
         }
     }
 }

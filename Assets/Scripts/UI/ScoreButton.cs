@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class ScoreButton : MonoBehaviour
 {
+    public GameObject _closeScoreButton;
     [SerializeField] private ScoreCanvas _scoreCanvas;
     [SerializeField] private Button _scoreButton;
     [SerializeField] private StartMenu _startMenu;
-    [SerializeField] private GameObject _closeScoreButton;
+    [SerializeField] private GameManager _gameManager;
 
     private void Start()
     {
@@ -33,5 +34,6 @@ public class ScoreButton : MonoBehaviour
     {
         _scoreCanvas.CloseMenu();
         _closeScoreButton.SetActive(false);
+        _gameManager.GameOver();
     }
 }

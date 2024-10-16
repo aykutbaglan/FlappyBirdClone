@@ -11,6 +11,7 @@ namespace Game.UI
     {
         public StartMenu startMenu;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
+        [SerializeField] private ScoreButton _scoreButton;
         private CanvasGroup _canvasGroup;
         public bool IsActiveStartAlpha => _canvasGroup.alpha > 0.5f;
 
@@ -33,6 +34,7 @@ namespace Game.UI
             _canvasGroup.alpha = 0f;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
+            _scoreButton._closeScoreButton.SetActive(false);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Game.UI
     [RequireComponent(typeof(CanvasGroup))]
     public class StartMenu : MonoBehaviour
     {
-        public static bool isRestarted = false;
+        public static bool GameFail = false;
         public Button _startButton;
         [SerializeField] private ScoreCanvas _scoreCanvas;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
@@ -21,14 +21,13 @@ namespace Game.UI
         }
         private void Start()
         {
-            if (!isRestarted)
+            if (PlayerPrefs.GetInt("isGameRestarted", 1) == 0)
             {
                 OpenMenu();
             }
             else
             {
                 CloseMenu();
-                isRestarted = false;
             }
         }
         private void OnEnable()
@@ -41,8 +40,14 @@ namespace Game.UI
         }
         public void OpenMenu()
         {
+            if (PlayerPrefs.GetInt("isGameRestarted", 0) == 1)
+            {
+                GameManager.GameResume();
+                _inGameMenu.OpenMenu();
+                return;
+            }
             _canvasGroup.alpha = 1;
-            Time.timeScale = 0f;
+            GameManager.GamePause();
             if (_canvasShopMenu.IsCanvasActive == true)
             {
                 _canvasGroup.blocksRaycasts = false;
@@ -58,7 +63,7 @@ namespace Game.UI
             else
             {
                 _canvasGroup.interactable = true;
-
+                
             }
         }
         public void CloseMenu()
@@ -67,13 +72,19 @@ namespace Game.UI
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
         }
+        public void CloseBlockRaycasts()
+        {
+            // kuþ seçildi ise blockRaycasts i false olsun
+            _canvasGroup.blocksRaycasts = true;
+            _canvasGroup.interactable = true;
+        }
         private void OnStartButtonClicked()
         {
             PlayerPrefs.SetInt("isGameStarted", 1);
             PlayerPrefs.Save();
             _inGameMenu.OpenMenu();
             CloseMenu();
-            Time.timeScale = 1f;
+            GameManager.GameResume();
         }
     }
 }
