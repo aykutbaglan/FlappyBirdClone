@@ -11,6 +11,7 @@ public class ShopButton : MonoBehaviour
     [SerializeField] private CanvasShopMenu _canvasShopMenu;
     [SerializeField] private CanvasMainMenu _canvasMainMenu;
     [SerializeField] private StartMenu _startMenu;
+    [SerializeField] private EndGameMenu _endGameMenu;
     [SerializeField] private GameManager _gameManager;
     private CanvasGroup _canvasGroup;
 
@@ -30,13 +31,14 @@ public class ShopButton : MonoBehaviour
     {
         _shopButton.onClick.RemoveListener(ShopOpenButton);
     }
-    public void ShopOpenButton() // burada startmenu.OpenMenu olduðu için endgame de buttonlara bastýðýmýz zaman startmenu açýlýyor  
+    public void ShopOpenButton() // bu fonksiyon içerisinde CloseButton a bastýðýmda startmenu Alpha sý 0 oluyor.// burada startmenu.OpenMenu olduðu için endgame de buttonlara bastýðýmýz zaman startmenu açýlýyor  
     {// ShopButton a bastýðýmýz zaman StartMenude isek StartMenuyu açsýn EndGame de isek EndGame i açsýn yani alpha yý 1 yapsýn.
         _canvasShopMenu.OpenMenu();
         _startMenu.CloseMenu();
+        _endGameMenu.CloseMenu();
         CloseShopButton.SetActive(true);
     }
-    public void CloseMenu()
+    public void CloseMenu() 
     {
         _canvasShopMenu.CloseMenu();
         CloseShopButton.SetActive(false);

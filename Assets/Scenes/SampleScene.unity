@@ -3531,6 +3531,7 @@ MonoBehaviour:
   _canvasShopMenu: {fileID: 914710964}
   _canvasMainMenu: {fileID: 1770117559}
   _startMenu: {fileID: 1788282949}
+  _endGameMenu: {fileID: 1326572001}
   _gameManager: {fileID: 596880055}
 --- !u!1 &992589667
 GameObject:
@@ -4764,6 +4765,7 @@ MonoBehaviour:
   _scoreCanvas: {fileID: 1275581065}
   _scoreButton: {fileID: 429377820}
   _startMenu: {fileID: 1788282949}
+  _endGameMenu: {fileID: 1326572001}
   _gameManager: {fileID: 596880055}
 --- !u!1 &1286299752
 GameObject:
@@ -4970,6 +4972,7 @@ MonoBehaviour:
   _startMenu: {fileID: 1788282949}
   _inGameMenu: {fileID: 1816814922}
   _scoreCanvas: {fileID: 1275581065}
+  _shopCanvas: {fileID: 914710964}
   _shopButton: {fileID: 914710966}
   _scoreButton: {fileID: 1275581067}
   _canvasMainMenu: {fileID: 1770117559}
