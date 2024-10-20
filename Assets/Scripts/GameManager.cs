@@ -86,6 +86,10 @@ public class GameManager : MonoBehaviour
     {
         gameover = true;
         GamePause();
+        if (!nameLoginPanel.GetComponent<NameLoginPanel>().isNameSaved)
+        {
+            scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
+        }
         if (StartMenu.GameFail == true)
         {
             endGameMenu.OpenMenu();

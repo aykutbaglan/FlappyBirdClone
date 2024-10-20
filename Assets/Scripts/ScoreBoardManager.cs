@@ -45,13 +45,11 @@ public class ScoreBoardManager : MonoBehaviour
             }
             ShiftScores(index);
             SaveCurrentScore(score,name,index);
-        }
-        else
-        {
-
+            nameLoginPanel.SetActive(false);
         }
         LoadScoreBoardData();
     }
+
     public void ShowNameLoginPanel(int score, string name)
     {
         int minscores = PlayerPrefs.GetInt("ScoreBoardScore9");

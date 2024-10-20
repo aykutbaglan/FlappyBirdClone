@@ -12,6 +12,7 @@ public class NameLoginPanel : MonoBehaviour
     public ScoreBoardManager scoreBoardManager;
     private bool loginCompleated;
     [SerializeField] private PlayerProperties _mainPlayer;
+    public bool isNameSaved = false;
 
     private void OnEnable()
     {
@@ -38,5 +39,6 @@ public class NameLoginPanel : MonoBehaviour
         }
         loginCompleated = true;
         scoreBoardManager.SaveScoreBoardData(_mainPlayer.playerScore, inputname.text);
+        isNameSaved = true;
     }
 }
