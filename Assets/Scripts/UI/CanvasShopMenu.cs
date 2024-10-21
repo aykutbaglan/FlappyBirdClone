@@ -15,11 +15,7 @@ namespace Game.UI
         [SerializeField] private ScoreCanvas _scoreCanvas;
         public bool IsCanvasActive => _canvasGroup.alpha > 0.5f;
         public bool IsStartButtonInteractable => _canvasGroup.alpha > 0.5f;
-        
-
-
         private CanvasGroup _canvasGroup;
-
         private void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();

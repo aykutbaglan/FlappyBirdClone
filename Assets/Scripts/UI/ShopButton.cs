@@ -32,8 +32,8 @@ public class ShopButton : MonoBehaviour
     {
         _shopButton.onClick.RemoveListener(ShopOpenButton);
     }
-    public void ShopOpenButton() // bu fonksiyon içerisinde CloseButton a bastýðýmda startmenu Alpha sý 0 oluyor.// burada startmenu.OpenMenu olduðu için endgame de buttonlara bastýðýmýz zaman startmenu açýlýyor  
-    {// ShopButton a bastýðýmýz zaman StartMenude isek StartMenuyu açsýn EndGame de isek EndGame i açsýn yani alpha yý 1 yapsýn.
+    public void ShopOpenButton()
+    { 
         _canvasShopMenu.OpenMenu();
         _startMenu.CloseMenu();
         _endGameMenu.CloseMenu();

@@ -6,21 +6,22 @@ using UnityEngine.UI;
 
 public class NameLoginPanel : MonoBehaviour
 {
-    public Button saveButton;
     public TMP_InputField inputname;
-    public TextMeshProUGUI infoText;
-    public ScoreBoardManager scoreBoardManager;
     public bool isNameSaved = false;
+    public GameObject nameLoginPanelGo;
+    [SerializeField] private TextMeshProUGUI infoText;
+    [SerializeField] private ScoreBoardManager scoreBoardManager;
+    [SerializeField] private Button saveButton;
     [SerializeField] private PlayerProperties _mainPlayer;
     [SerializeField] private GameManager _gameManager;
-    private bool loginCompleated;
+    private bool _loginCompleated;
 
     private void OnEnable()
     {
         saveButton.onClick.AddListener(LoginButton); 
         saveButton.onClick.AddListener(()=>
         {
-            if (loginCompleated)
+            if (_loginCompleated)
             {
                 gameObject.SetActive(false);
             }
@@ -35,10 +36,10 @@ public class NameLoginPanel : MonoBehaviour
         if (string.IsNullOrWhiteSpace(inputname.text.Trim()))
         {
             infoText.text = "Kullanýcý adý boþ olmamalý";
-            loginCompleated = false;
+            _loginCompleated = false;
             return;
         }
-        loginCompleated = true;
+        _loginCompleated = true;
         scoreBoardManager.SaveScoreBoardData(_mainPlayer.playerScore, inputname.text);
         isNameSaved = true;
         _gameManager.GameOver();

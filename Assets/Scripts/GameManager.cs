@@ -10,10 +10,8 @@ public class GameManager : MonoBehaviour
 
     public StartMenu startMenu;
     public GameObject startButtonGo;
-    public NameLoginPanel nameLoginPanel;
-    public GameObject nameLoginPanelGo;
-    //public GameObject scoreRankingPanelGo;
     public bool gameover = false;
+    [SerializeField] private NameLoginPanel nameLoginPanel;
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private PlayerProperties mainPlayer;
     [SerializeField] private EndGameMenu endGameMenu;
@@ -25,15 +23,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("isGameStarted", 0) == 0)
-        {
-            //ShowStartMenu();
-        }
-        else
-        {
-            StartGame();
-        }
-
         if (!PlayerPrefs.HasKey("isGameRestarted"))
         {
             PlayerPrefs.SetInt("isGameRestarted", 0);
@@ -56,8 +45,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        //_scoreManager.highScoreTextGo.SetActive(true);
-        nameLoginPanelGo.SetActive(false);
+        nameLoginPanel.nameLoginPanelGo.SetActive(false);
     }
     public void GameOver()
     {
@@ -70,28 +58,22 @@ public class GameManager : MonoBehaviour
         if (StartMenu.GameFail == true)
         {
             endGameMenu.OpenMenu();
-            //_scoreManager.highScoreTextGo.SetActive(true);
-            Debug.Log("Oyun Yeniden Baþlatýldý");
         }
         else
         {
             startMenu.OpenMenu();
-            //_scoreManager.highScoreTextGo.SetActive(true);
-            Debug.Log("Oyun Ýlk kez baþlatýldý");
         }
-        if (nameLoginPanelGo.activeSelf == true)
+        if (nameLoginPanel.nameLoginPanelGo.activeSelf == true)
         {
             endGameMenu.restartButtonGo.SetActive(false);
             _scoreButton._scoreButtonGo.SetActive(false);
             _shopButton.shopButtonGo.SetActive(false);
-            Debug.Log("NameLoginPaneli Açýldý");
         }
         else
         {
             endGameMenu.restartButtonGo.SetActive(true);
             _scoreButton._scoreButtonGo.SetActive(true);
             _shopButton.shopButtonGo.SetActive(true);
-            Debug.Log("NameLoginPaneli Kapandý");
         }
     }
 }

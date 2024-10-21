@@ -20,8 +20,6 @@ namespace Game.UI
         [SerializeField] private ScoreButton _scoreButton;
         [SerializeField] private CanvasMainMenu _canvasMainMenu;
         [SerializeField] private GameManager _gameManager;
-
-
         private void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
@@ -32,15 +30,11 @@ namespace Game.UI
         }
         private void OnEnable()
         {
-            
                 _restartButton.onClick.AddListener(OnRestartButtonClicked);
-            
         }
         private void OnDisable()
         {
-            
                 _restartButton.onClick.RemoveListener(OnRestartButtonClicked);
-            
         }
         public void OpenMenu()
         {
@@ -65,7 +59,6 @@ namespace Game.UI
         }
         public void CloseMenu()
         {
-            //GameManager.GameResume();
             _canvasGroup.alpha = 0f;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;

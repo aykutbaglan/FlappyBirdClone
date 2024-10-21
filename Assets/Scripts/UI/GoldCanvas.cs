@@ -8,7 +8,6 @@ namespace Game.UI
 
     public class GoldCanvas : MonoBehaviour
     {
-        [SerializeField] private ScoreManager scoreManager;
         private CanvasGroup _canvasGroup;
         private void Awake()
         {

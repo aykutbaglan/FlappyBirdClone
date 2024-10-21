@@ -10,6 +10,7 @@ namespace Game.UI
     {
         public static bool GameFail = false;
         public Button _startButton;
+        public GameObject startButton;
         [SerializeField] private ScoreCanvas _scoreCanvas;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
         [SerializeField] private InGameMenu _inGameMenu;
@@ -74,7 +75,6 @@ namespace Game.UI
         }
         public void CloseBlockRaycasts()
         {
-            // kuþ seçildi ise blockRaycasts i false olsun
             _canvasGroup.blocksRaycasts = true;
             _canvasGroup.interactable = true;
         }

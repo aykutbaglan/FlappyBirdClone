@@ -9,7 +9,6 @@ namespace Game.UI
     public class CanvasMainMenu : MonoBehaviour
     {
         [SerializeField] private StartMenu _startMenu;
-        //[SerializeField] private ShopButton _shopButton;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
         [SerializeField] private ScoreCanvas _canvasScoreMenu;
         public CanvasGroup _canvasGroup;
@@ -25,24 +24,25 @@ namespace Game.UI
             _canvasGroup.blocksRaycasts = true;
             _startMenu.CloseMenu();
         }
-        public void CloseMenu()
-        {
-            _canvasGroup.alpha = 0f;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-            _startMenu.OpenMenu();
-        }
-        public void CloseButton()
-        {
-            _canvasShopMenu.CloseMenu();
-            _canvasScoreMenu.CloseMenu();
-            _startMenu.OpenMenu();
-        }
         public void RestartGameButtonsOff()
         {
             _canvasGroup.alpha = 0f;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
         }
+        private void CloseMenu()
+        {
+            _canvasGroup.alpha = 0f;
+            _canvasGroup.interactable = false;
+            _canvasGroup.blocksRaycasts = false;
+            _startMenu.OpenMenu();
+        }
+        private void CloseButton()
+        {
+            _canvasShopMenu.CloseMenu();
+            _canvasScoreMenu.CloseMenu();
+            _startMenu.OpenMenu();
+        }
+        
     }
 }

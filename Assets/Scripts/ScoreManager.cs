@@ -7,15 +7,15 @@ public class ScoreManager : MonoBehaviour
 {
     public TMP_Text scoreText;
     private int goldScore = 0;
-    public TMP_Text highScoreText;
-    public GameObject highScoreTextGo;
+    //public TMP_Text highScoreText;
+    //public GameObject highScoreTextGo;
     public TMP_Text goldScoreText;
     public PlayerProperties mainPlayer;
     private void Start()
     {
         mainPlayer.playerScore = 0;
         scoreText.text = mainPlayer.playerScore.ToString();
-        highScoreText.text = "High Score :" + PlayerPrefs.GetInt("highScore");
+        //highScoreText.text = "High Score :" + PlayerPrefs.GetInt("highScore");
         goldScore = PlayerPrefs.GetInt("TotalCoins");
         goldScoreText.text = goldScore.ToString();
     }
@@ -23,12 +23,11 @@ public class ScoreManager : MonoBehaviour
     {
         mainPlayer.playerScore++;
         scoreText.text = mainPlayer.playerScore.ToString();
-
         if (mainPlayer.playerScore > PlayerPrefs.GetInt("highScore"))
         {
             PlayerPrefs.SetInt("highScore", mainPlayer.playerScore);
         }
-        highScoreText.text = "High Score :" + PlayerPrefs.GetInt("highScore");
+        //highScoreText.text = "High Score :" + PlayerPrefs.GetInt("highScore");
     }
     public void IncreaseGoldScore()
     {

@@ -7,7 +7,6 @@ public class ScoreBoardManager : MonoBehaviour
 {
     [SerializeField] private ScoreTablePlayer[] scorePlayers;
     public GameObject nameLoginPanel;
-
     private void Start()
     {
         LoadScoreBoardData();

@@ -14,7 +14,6 @@ namespace Game.UI
         [SerializeField] private ScoreCanvas scoreCanvas;
         [SerializeField] private ShopButton _shopButton;
         [SerializeField] private CanvasMainMenu _canvasMainMenu;
-
         private void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();

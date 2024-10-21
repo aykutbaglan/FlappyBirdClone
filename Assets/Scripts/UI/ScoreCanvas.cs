@@ -12,14 +12,13 @@ namespace Game.UI
         public StartMenu startMenu;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
         [SerializeField] private ScoreButton _scoreButton;
-        private CanvasGroup _canvasGroup;
         public bool IsActiveStartAlpha => _canvasGroup.alpha > 0.5f;
+        private CanvasGroup _canvasGroup;
 
         private void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }
-
         public void OpenMenu()
         {
             _canvasGroup.alpha = 1.0f;
