@@ -11,6 +11,7 @@ namespace Game.UI
     {
         private CanvasGroup _canvasGroup;
         public Button _restartButton;
+        public GameObject restartButtonGo;
         [SerializeField] private StartMenu _startMenu;
         [SerializeField] private InGameMenu _inGameMenu;
         [SerializeField] private ScoreCanvas _scoreCanvas;

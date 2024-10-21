@@ -7,42 +7,32 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private PlayerProperties mainPlayer;
-    [SerializeField] private EndGameMenu endGameMenu;
+
     public StartMenu startMenu;
-    //public GameObject startMenuGo;
-    //public GameObject gameoverMenu;
     public GameObject highScoreTxtGo;
-    //public Button startButton;
     public GameObject startButtonGo;
-    //public Button restartButton;
-    //public GameObject restartButtonGo;
-    //public GameObject interactionButtonGo;
     public NameLoginPanel nameLoginPanel;
     public GameObject nameLoginPanelGo;
-    public GameObject scoreRankingPanelGo;
-    //public GameObject Shop_Birds;
-    public Button scoresButton;
+    //public GameObject scoreRankingPanelGo;
     public bool gameover = false;
-
-    public ScoreBoardManager scoreBoardManager;
+    [SerializeField] private PlayerProperties mainPlayer;
+    [SerializeField] private EndGameMenu endGameMenu;
+    [SerializeField] private ScoreBoardManager scoreBoardManager;
+    [SerializeField] private ScoreButton _scoreButton;
+    [SerializeField] private ShopButton _shopButton;
 
     //private const string GAME_STARTED = "isGameStarted";
 
-    //private void OnEnable()
-    //{
-    //    scoresButton.onClick.AddListener(OnScoresButtonClicked);
-    //}
     private void Start()
     {
-        if (nameLoginPanel.inputname.text == "")
-        {
-            //startButton.interactable = false;
-        }
-        else
-        {
-            //startButton.interactable = true;
-        }
+        //if (nameLoginPanel.inputname.text == "")
+        //{
+        //    //startButton.interactable = false;
+        //}
+        //else
+        //{
+        //    //startButton.interactable = true;
+        //}
         if (PlayerPrefs.GetInt("isGameStarted", 0) == 0)
         {
             ShowStartMenu();
@@ -81,7 +71,23 @@ public class GameManager : MonoBehaviour
         highScoreTxtGo.SetActive(true);
         nameLoginPanelGo.SetActive(false);
     }
-
+    //public void NameLoginPanelActiveted()
+    //{
+    //    if (nameLoginPanelGo.activeSelf == true)
+    //    {
+    //        endGameMenu.restartButtonGo.SetActive(false);
+    //        _scoreButton._scoreButtonGo.SetActive(false);
+    //        _shopButton.shopButtonGo.SetActive(false);
+    //        Debug.Log("NameLoginPaneli Açýldý");
+    //    }
+    //    else
+    //    {
+    //        endGameMenu.restartButtonGo.SetActive(true);
+    //        _scoreButton._scoreButtonGo.SetActive(true);
+    //        _shopButton.shopButtonGo.SetActive(true);
+    //        Debug.Log("NameLoginPaneli Kapandý");
+    //    }
+    //}
     public void GameOver()
     {
         gameover = true;
@@ -100,47 +106,19 @@ public class GameManager : MonoBehaviour
             startMenu.OpenMenu();
             Debug.Log("Oyun Ýlk kez baþlatýldý");
         }
-    }
-
-    //public void GameOverOLD()
-    //{
-        
-    //    Debug.Log("Game Over");
-    //    scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
-    //    PlayerPrefs.SetInt(GAME_STARTED, 1);
-    //    //gameover = true;
-    //    if (StartMenu.GameFail == true)
-    //    {
-    //        endGameMenu.OpenMenu();
-    //        gameover = true;
-    //        Debug.Log("Oyun Yeniden Baþlatýldý");
-    //    }
-    //}
-        /* 
-         * if (scoreRankingPanelGo == true || Shop_Birds == true)
+        if (nameLoginPanelGo.activeSelf == true)
         {
-            scoreRankingPanelGo.SetActive(false);
-            Shop_Birds.SetActive(false);
-            //restartButtonGo.SetActive(false);
-        }*/
-    /*
-     * public void OpenRankPanel() //Button Onclick te bu fonk çalýþýyor
-    //{
-    //    scoreRankingPanelGo.SetActive(true);
-    //    if (Shop_Birds.activeSelf)
-    //    {
-    //        startButtonGo.SetActive(false);
-    //        Shop_Birds.SetActive(false);
-    //        //restartButtonGo.SetActive(false);
-    //    }
-    //    if (scoreRankingPanelGo.activeSelf)
-    //    {
-    //        //restartButtonGo.SetActive(false);
-    //        startButtonGo.SetActive(false); 
-    //    }
-    //    else
-    //    {
-    //        //restartButtonGo.SetActive(true);
-    //        startButtonGo.SetActive(true);
-        } */
+            endGameMenu.restartButtonGo.SetActive(false);
+            _scoreButton._scoreButtonGo.SetActive(false);
+            _shopButton.shopButtonGo.SetActive(false);
+            Debug.Log("NameLoginPaneli Açýldý");
+        }
+        else
+        {
+            endGameMenu.restartButtonGo.SetActive(true);
+            _scoreButton._scoreButtonGo.SetActive(true);
+            _shopButton.shopButtonGo.SetActive(true);
+            Debug.Log("NameLoginPaneli Kapandý");
+        }
+    }
 }

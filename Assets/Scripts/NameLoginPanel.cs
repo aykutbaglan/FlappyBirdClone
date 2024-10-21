@@ -10,9 +10,10 @@ public class NameLoginPanel : MonoBehaviour
     public TMP_InputField inputname;
     public TextMeshProUGUI infoText;
     public ScoreBoardManager scoreBoardManager;
-    private bool loginCompleated;
-    [SerializeField] private PlayerProperties _mainPlayer;
     public bool isNameSaved = false;
+    [SerializeField] private PlayerProperties _mainPlayer;
+    [SerializeField] private GameManager _gameManager;
+    private bool loginCompleated;
 
     private void OnEnable()
     {
@@ -31,7 +32,7 @@ public class NameLoginPanel : MonoBehaviour
     }
     public void LoginButton()
     {
-        if (inputname.text == "")
+        if (string.IsNullOrWhiteSpace(inputname.text.Trim()))
         {
             infoText.text = "Kullanýcý adý boþ olmamalý";
             loginCompleated = false;
@@ -40,5 +41,6 @@ public class NameLoginPanel : MonoBehaviour
         loginCompleated = true;
         scoreBoardManager.SaveScoreBoardData(_mainPlayer.playerScore, inputname.text);
         isNameSaved = true;
+        _gameManager.GameOver();
     }
 }

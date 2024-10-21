@@ -2390,17 +2390,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcad416e727af0b4bb8f1fffac0c16ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainPlayer: {fileID: 139665137}
-  endGameMenu: {fileID: 1326572001}
   startMenu: {fileID: 1788282949}
   highScoreTxtGo: {fileID: 4508142060094996355}
   startButtonGo: {fileID: 5731630289760765325}
   nameLoginPanel: {fileID: 7772733524239301817}
   nameLoginPanelGo: {fileID: 7270657929045361274}
-  scoreRankingPanelGo: {fileID: 1275581060}
-  scoresButton: {fileID: 429377820}
   gameover: 0
+  mainPlayer: {fileID: 139665137}
+  endGameMenu: {fileID: 1326572001}
   scoreBoardManager: {fileID: 3355140330583601255}
+  _scoreButton: {fileID: 1275581067}
+  _shopButton: {fileID: 914710966}
 --- !u!4 &596880056
 Transform:
   m_ObjectHideFlags: 0
@@ -3524,6 +3524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CloseShopButton: {fileID: 896861396}
+  shopButtonGo: {fileID: 4671642594053999989}
   _shopButton: {fileID: 1972645379505657523}
   _canvasShopMenu: {fileID: 914710964}
   _canvasMainMenu: {fileID: 1770117559}
@@ -4758,8 +4759,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _closeScoreButton: {fileID: 6137942210081151694}
-  _scoreCanvas: {fileID: 1275581065}
+  _scoreButtonGo: {fileID: 429377818}
   _scoreButton: {fileID: 429377820}
+  _scoreCanvas: {fileID: 1275581065}
   _startMenu: {fileID: 1788282949}
   _endGameMenu: {fileID: 1326572001}
   _gameManager: {fileID: 596880055}
@@ -4965,6 +4967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _restartButton: {fileID: 1163371843}
+  restartButtonGo: {fileID: 1163371841}
   _startMenu: {fileID: 1788282949}
   _inGameMenu: {fileID: 1816814922}
   _scoreCanvas: {fileID: 1275581065}
@@ -11717,7 +11720,9 @@ MonoBehaviour:
   inputname: {fileID: 8020693499034936500}
   infoText: {fileID: 4492247178645748954}
   scoreBoardManager: {fileID: 3355140330583601255}
+  isNameSaved: 0
   _mainPlayer: {fileID: 139665137}
+  _gameManager: {fileID: 596880055}
 --- !u!224 &7775983941469922492
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12140,6 +12145,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2012584370910324847, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282363657264051727, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282363657264051727, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9615384
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282363657264051727, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282363657264051727, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282363657264051727, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282363657264051727, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860974651918463146, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860974651918463146, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9615384
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860974651918463146, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860974651918463146, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860974651918463146, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860974651918463146, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5246338498387328531, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
       propertyPath: inGameMenu
       value: 
@@ -12156,6 +12213,30 @@ PrefabInstance:
       propertyPath: gameovermenu
       value: 
       objectReference: {fileID: 1326571996}
+    - target: {fileID: 6739294391839318840, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739294391839318840, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739294391839318840, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739294391839318840, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6739294391839318840, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7087503246749559602, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7159079212738694589, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
       propertyPath: m_Name
       value: Bird_Image

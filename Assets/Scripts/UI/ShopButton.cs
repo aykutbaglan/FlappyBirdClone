@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ShopButton : MonoBehaviour
 {
     public GameObject CloseShopButton;
+    public GameObject shopButtonGo;
     [SerializeField] private Button _shopButton;
     [SerializeField] private CanvasShopMenu _canvasShopMenu;
     [SerializeField] private CanvasMainMenu _canvasMainMenu;

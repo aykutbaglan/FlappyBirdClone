@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class RestartButton : MonoBehaviour
 {
     public bool startgame;
+    
     private void Start()
     {
         GameManager.GameResume();

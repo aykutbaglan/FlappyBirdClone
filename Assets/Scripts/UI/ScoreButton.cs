@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class ScoreButton : MonoBehaviour
 {
     public GameObject _closeScoreButton;
-    [SerializeField] private ScoreCanvas _scoreCanvas;
+    public GameObject _scoreButtonGo;
     [SerializeField] private Button _scoreButton;
+    [SerializeField] private ScoreCanvas _scoreCanvas;
     [SerializeField] private StartMenu _startMenu;
     [SerializeField] private EndGameMenu _endGameMenu;
     [SerializeField] private GameManager _gameManager;
