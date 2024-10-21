@@ -8,6 +8,7 @@ public class ScoreManager : MonoBehaviour
     public TMP_Text scoreText;
     private int goldScore = 0;
     public TMP_Text highScoreText;
+    public GameObject highScoreTextGo;
     public TMP_Text goldScoreText;
     public PlayerProperties mainPlayer;
     private void Start()

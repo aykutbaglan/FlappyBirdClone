@@ -9,12 +9,12 @@ public class GameManager : MonoBehaviour
 {
 
     public StartMenu startMenu;
-    public GameObject highScoreTxtGo;
     public GameObject startButtonGo;
     public NameLoginPanel nameLoginPanel;
     public GameObject nameLoginPanelGo;
     //public GameObject scoreRankingPanelGo;
     public bool gameover = false;
+    [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private PlayerProperties mainPlayer;
     [SerializeField] private EndGameMenu endGameMenu;
     [SerializeField] private ScoreBoardManager scoreBoardManager;
@@ -25,17 +25,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //if (nameLoginPanel.inputname.text == "")
-        //{
-        //    //startButton.interactable = false;
-        //}
-        //else
-        //{
-        //    //startButton.interactable = true;
-        //}
         if (PlayerPrefs.GetInt("isGameStarted", 0) == 0)
         {
-            ShowStartMenu();
+            //ShowStartMenu();
         }
         else
         {
@@ -48,7 +40,6 @@ public class GameManager : MonoBehaviour
         }
         StartMenu.GameFail = false;
     }
-
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("isGameStarted", 0);
@@ -62,32 +53,12 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
     }
-    public void ShowStartMenu() 
-    {
-        highScoreTxtGo.SetActive(false);
-    }
+
     public void StartGame()
     {
-        highScoreTxtGo.SetActive(true);
+        //_scoreManager.highScoreTextGo.SetActive(true);
         nameLoginPanelGo.SetActive(false);
     }
-    //public void NameLoginPanelActiveted()
-    //{
-    //    if (nameLoginPanelGo.activeSelf == true)
-    //    {
-    //        endGameMenu.restartButtonGo.SetActive(false);
-    //        _scoreButton._scoreButtonGo.SetActive(false);
-    //        _shopButton.shopButtonGo.SetActive(false);
-    //        Debug.Log("NameLoginPaneli Açýldý");
-    //    }
-    //    else
-    //    {
-    //        endGameMenu.restartButtonGo.SetActive(true);
-    //        _scoreButton._scoreButtonGo.SetActive(true);
-    //        _shopButton.shopButtonGo.SetActive(true);
-    //        Debug.Log("NameLoginPaneli Kapandý");
-    //    }
-    //}
     public void GameOver()
     {
         gameover = true;
@@ -99,11 +70,13 @@ public class GameManager : MonoBehaviour
         if (StartMenu.GameFail == true)
         {
             endGameMenu.OpenMenu();
+            //_scoreManager.highScoreTextGo.SetActive(true);
             Debug.Log("Oyun Yeniden Baþlatýldý");
         }
         else
         {
             startMenu.OpenMenu();
+            //_scoreManager.highScoreTextGo.SetActive(true);
             Debug.Log("Oyun Ýlk kez baþlatýldý");
         }
         if (nameLoginPanelGo.activeSelf == true)
