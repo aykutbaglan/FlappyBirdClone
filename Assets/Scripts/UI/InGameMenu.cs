@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class InGameMenu : MonoBehaviour
+    public class InGameMenu : Menu
     {
         public bool restartActiveButtons => _canvasGroup.alpha > 0.5f;
         private CanvasGroup _canvasGroup;
@@ -18,23 +18,9 @@ namespace Game.UI
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }
-        private void Start()
+        public void StartGame()
         {
-            scoreCanvas.CloseMenu();
-            _shopButton.CloseMenu();
-        }
-        public void OpenMenu()
-        {
-            _canvasGroup.alpha = 1;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
-            _canvasMainMenu.RestartGameButtonsOff();
-        }
-        public void CloseMenu()
-        {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
+            base.CloseAllMenus();
         }
     }
 }

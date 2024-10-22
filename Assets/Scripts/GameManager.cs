@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ScoreBoardManager scoreBoardManager;
     [SerializeField] private ScoreButton _scoreButton;
     [SerializeField] private ShopButton _shopButton;
-
+    [SerializeField] private InGameMenu _inGameMenu;
+    [SerializeField] private CanvasMainMenu _canvasMainMenu;
     //private const string GAME_STARTED = "isGameStarted";
 
     private void Start()
@@ -58,6 +59,8 @@ public class GameManager : MonoBehaviour
         if (StartMenu.GameFail == true)
         {
             endGameMenu.OpenMenu();
+            _canvasMainMenu.OpenMenu();
+            _inGameMenu.CloseMenu();
         }
         else
         {

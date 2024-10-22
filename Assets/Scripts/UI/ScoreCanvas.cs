@@ -7,31 +7,18 @@ using UnityEngine.UI;
 namespace Game.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class ScoreCanvas : MonoBehaviour
+    public class ScoreCanvas : Menu
     {
         public StartMenu startMenu;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
         [SerializeField] private ScoreButton _scoreButton;
+        [SerializeField] private GameManager _gameManager;
         public bool IsActiveStartAlpha => _canvasGroup.alpha > 0.5f;
-        private CanvasGroup _canvasGroup;
 
-        private void Awake()
+        public void ScoreButtonCloseOnclick()
         {
-            _canvasGroup = GetComponent<CanvasGroup>();
-        }
-        public void OpenMenu()
-        {
-            _canvasGroup.alpha = 1.0f;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
-            _canvasShopMenu.CloseMenu();
-        }
-        public void CloseMenu()
-        {
-            _canvasGroup.alpha = 0f;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-            _scoreButton._closeScoreButton.SetActive(false);
+            base.CloseAllMenus();
+            _gameManager.GameOver();
         }
     }
 }

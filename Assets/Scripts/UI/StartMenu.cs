@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace Game.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class StartMenu : MonoBehaviour
+    public class StartMenu : Menu
     {
         public static bool GameFail = false;
         public Button _startButton;
@@ -47,7 +47,7 @@ namespace Game.UI
                 _inGameMenu.OpenMenu();
                 return;
             }
-            _canvasGroup.alpha = 1;
+            base.OpenMenu();
             GameManager.GamePause();
             if (_canvasShopMenu.IsCanvasActive == true)
             {
@@ -64,19 +64,7 @@ namespace Game.UI
             else
             {
                 _canvasGroup.interactable = true;
-                
             }
-        }
-        public void CloseMenu()
-        {
-            _canvasGroup.alpha = 0;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-        }
-        public void CloseBlockRaycasts()
-        {
-            _canvasGroup.blocksRaycasts = true;
-            _canvasGroup.interactable = true;
         }
         private void OnStartButtonClicked()
         {

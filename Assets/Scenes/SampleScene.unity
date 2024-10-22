@@ -2028,7 +2028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.84952086, y: 0.8791635}
   m_AnchorMax: {x: 1, y: 0.92871153}
-  m_AnchoredPosition: {x: -2.833252, y: -3.8216553}
+  m_AnchoredPosition: {x: -2.833252, y: -3.8217773}
   m_SizeDelta: {x: -15.682312, y: -16.58899}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &429377820
@@ -2610,6 +2610,8 @@ MonoBehaviour:
   scoreBoardManager: {fileID: 3355140330583601255}
   _scoreButton: {fileID: 1275581067}
   _shopButton: {fileID: 914710966}
+  _inGameMenu: {fileID: 1816814922}
+  _canvasMainMenu: {fileID: 1770117559}
 --- !u!4 &596880056
 Transform:
   m_ObjectHideFlags: 0
@@ -3608,9 +3610,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914710966}
-        m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
-        m_MethodName: CloseMenu
+      - m_Target: {fileID: 914710964}
+        m_TargetAssemblyTypeName: Game.UI.CanvasShopMenu, Assembly-CSharp
+        m_MethodName: ShopButtonCloseOnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3775,11 +3777,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d835b3d4855ac734380deb2b094b4869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 914710965}
+  menus:
+  - {fileID: 1788282949}
+  - {fileID: 1816814922}
+  - {fileID: 1326572001}
+  - {fileID: 1275581065}
+  - {fileID: 914710964}
   startMenu: {fileID: 1788282949}
   _shopMenu: {fileID: 914710966}
   _canvasMainMenu: {fileID: 1770117559}
   _shopButton: {fileID: 914710966}
   _scoreCanvas: {fileID: 1275581065}
+  _gameManager: {fileID: 596880055}
 --- !u!225 &914710965
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5088,9 +5098,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c296c53bdee1fb44a51b2a3e011dfb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 1275581066}
+  menus:
+  - {fileID: 914710964}
+  - {fileID: 1275581065}
+  - {fileID: 1788282949}
+  - {fileID: 1326572001}
+  - {fileID: 1816814922}
   startMenu: {fileID: 1788282949}
   _canvasShopMenu: {fileID: 914710964}
   _scoreButton: {fileID: 1275581067}
+  _gameManager: {fileID: 596880055}
 --- !u!225 &1275581066
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5323,6 +5341,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf989a7d1898c89479ea18b7bebe70b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 1326572002}
+  menus:
+  - {fileID: 1788282949}
+  - {fileID: 1326572001}
+  - {fileID: 1275581065}
+  - {fileID: 914710964}
+  - {fileID: 1326572001}
   _restartButton: {fileID: 1163371843}
   restartButtonGo: {fileID: 1163371841}
   _startMenu: {fileID: 1788282949}
@@ -5358,7 +5383,6 @@ GameObject:
   - component: {fileID: 1412182796}
   - component: {fileID: 1412182795}
   - component: {fileID: 1412182798}
-  - component: {fileID: 1412182794}
   m_Layer: 0
   m_Name: ScoreGoldScore
   m_TagString: Untagged
@@ -5387,18 +5411,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1412182794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1412182792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bae0bbc90c1589340b7a58f41f4cc327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1412182795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6483,8 +6495,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b95ca705f86434a8fca2dac5510f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 1788282950}
+  menus:
+  - {fileID: 1788282949}
+  - {fileID: 1275581065}
+  - {fileID: 914710964}
+  - {fileID: 1326572001}
+  - {fileID: 1816814922}
   _startButton: {fileID: 2607177292175810251}
-  startButton: {fileID: 0}
+  startButton: {fileID: 5731630289760765325}
   _scoreCanvas: {fileID: 1275581065}
   _canvasShopMenu: {fileID: 914710964}
   _inGameMenu: {fileID: 1816814922}
@@ -6615,6 +6634,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b65ee2870b909a449adb2b1124fd8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 1816814923}
+  menus:
+  - {fileID: 1788282949}
+  - {fileID: 1816814922}
+  - {fileID: 1326572001}
+  - {fileID: 1275581065}
+  - {fileID: 914710964}
   _startMenu: {fileID: 1788282949}
   endGameMenu: {fileID: 1326572001}
   scoreCanvas: {fileID: 1275581065}
@@ -9323,9 +9349,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 914710966}
-        m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
-        m_MethodName: ShopOpenButton
+      - m_Target: {fileID: 914710964}
+        m_TargetAssemblyTypeName: Game.UI.Menu, Assembly-CSharp
+        m_MethodName: CloseAllMenus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11181,9 +11207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1275581067}
-        m_TargetAssemblyTypeName: ScoreButton, Assembly-CSharp
-        m_MethodName: CloseScoreMenu
+      - m_Target: {fileID: 1275581065}
+        m_TargetAssemblyTypeName: Game.UI.ScoreCanvas, Assembly-CSharp
+        m_MethodName: ScoreButtonCloseOnclick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12402,7 +12428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.84952086, y: 0.81600004}
   m_AnchorMax: {x: 0.99500006, y: 0.869}
-  m_AnchoredPosition: {x: 0.18249512, y: 1.4000244}
+  m_AnchoredPosition: {x: 0.18249512, y: 1.3999023}
   m_SizeDelta: {x: 109.076, y: 160.16638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7739487913989151406

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace Game.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class EndGameMenu : MonoBehaviour
+    public class EndGameMenu : Menu
     {
         private CanvasGroup _canvasGroup;
         public Button _restartButton;
@@ -24,10 +24,10 @@ namespace Game.UI
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }
-        private void Start()
-        {
-            CloseMenu();
-        }
+        //private void Start()
+        //{
+        //    CloseMenu();
+        //}
         private void OnEnable()
         {
                 _restartButton.onClick.AddListener(OnRestartButtonClicked);
@@ -36,14 +36,14 @@ namespace Game.UI
         {
                 _restartButton.onClick.RemoveListener(OnRestartButtonClicked);
         }
-        public void OpenMenu()
-        {
-            _canvasGroup.alpha = 1f;
-            _canvasGroup.interactable = true;
-            _canvasGroup.blocksRaycasts = true;
-            _canvasMainMenu.OpenMenu();
-            _inGameMenu.CloseMenu();
-        }
+        //public void OpenMenu()
+        //{
+        //    _canvasGroup.alpha = 1f;
+        //    _canvasGroup.interactable = true;
+        //    _canvasGroup.blocksRaycasts = true;
+        //    //_canvasMainMenu.OpenMenu();
+        //    //_inGameMenu.CloseMenu();
+        //}
         public void OnRestartButtonClicked()
         {
             PlayerPrefs.SetInt("isGameRestarted",1);
@@ -57,11 +57,11 @@ namespace Game.UI
             _inGameMenu.OpenMenu();
             GameManager.GameResume();
         }
-        public void CloseMenu()
-        {
-            _canvasGroup.alpha = 0f;
-            _canvasGroup.interactable = false;
-            _canvasGroup.blocksRaycasts = false;
-        }
+        //public void CloseMenu()
+        //{
+        //    _canvasGroup.alpha = 0f;
+        //    _canvasGroup.interactable = false;
+        //    _canvasGroup.blocksRaycasts = false;
+        //}
     }
 }
