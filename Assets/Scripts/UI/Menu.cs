@@ -9,7 +9,7 @@ namespace Game.UI
     {
         public CanvasGroup _canvasGroup;
         public Menu[] menus;
-        private void Awake()
+        public void Awake()
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }

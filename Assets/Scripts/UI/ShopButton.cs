@@ -14,12 +14,7 @@ public class ShopButton : MonoBehaviour
     [SerializeField] private StartMenu _startMenu;
     [SerializeField] private EndGameMenu _endGameMenu;
     [SerializeField] private GameManager _gameManager;
-    private CanvasGroup _canvasGroup;
 
-    private void Awake()
-    {
-        _canvasGroup = GetComponent<CanvasGroup>();
-    }
     private void Start()
     {
         CloseShopButton.SetActive(false);   

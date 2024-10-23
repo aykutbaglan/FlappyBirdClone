@@ -1,3 +1,4 @@
+using Game.UI;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,26 +7,29 @@ using UnityEngine.UI;
 
 public class NameLoginPanel : MonoBehaviour
 {
-    public TMP_InputField inputname;
     public bool isNameSaved = false;
+    public TMP_InputField inputname;
     public GameObject nameLoginPanelGo;
     [SerializeField] private TextMeshProUGUI infoText;
     [SerializeField] private ScoreBoardManager scoreBoardManager;
     [SerializeField] private Button saveButton;
     [SerializeField] private PlayerProperties _mainPlayer;
     [SerializeField] private GameManager _gameManager;
+    [SerializeField] private ScoreButton _scoreButton;
+    [SerializeField] private ShopButton _shopButton;
+    [SerializeField] private EndGameMenu _endGameMenu;
     private bool _loginCompleated;
 
     private void OnEnable()
     {
-        saveButton.onClick.AddListener(LoginButton); 
-        saveButton.onClick.AddListener(()=>
+        saveButton.onClick.AddListener(LoginButton);
+        saveButton.onClick.AddListener(() =>
         {
             if (_loginCompleated)
             {
                 gameObject.SetActive(false);
             }
-        } );
+        });
     }
     private void OnDisable()
     {
@@ -43,5 +47,20 @@ public class NameLoginPanel : MonoBehaviour
         scoreBoardManager.SaveScoreBoardData(_mainPlayer.playerScore, inputname.text);
         isNameSaved = true;
         _gameManager.GameOver();
+    }
+    public void NameLoginPanelControl()
+    {
+        if (nameLoginPanelGo.activeSelf == true)
+        {
+            _endGameMenu.restartButtonGo.SetActive(false);
+            _scoreButton._scoreButtonGo.SetActive(false);
+            _shopButton.shopButtonGo.SetActive(false);
+        }
+        else
+        {
+            _endGameMenu.restartButtonGo.SetActive(true);
+            _scoreButton._scoreButtonGo.SetActive(true);
+            _shopButton.shopButtonGo.SetActive(true);
+        }
     }
 }

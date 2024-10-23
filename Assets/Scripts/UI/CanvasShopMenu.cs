@@ -9,7 +9,6 @@ namespace Game.UI
     public class CanvasShopMenu : Menu
     {
         public StartMenu startMenu;
-        [SerializeField] private ShopButton _shopMenu;
         [SerializeField] private CanvasMainMenu _canvasMainMenu;
         [SerializeField] private ShopButton _shopButton;
         [SerializeField] private ScoreCanvas _scoreCanvas;

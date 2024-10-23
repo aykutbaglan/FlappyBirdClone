@@ -7,20 +7,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
-    public StartMenu startMenu;
-    public GameObject startButtonGo;
     public bool gameover = false;
+    [SerializeField] private StartMenu startMenu;
     [SerializeField] private NameLoginPanel nameLoginPanel;
-    [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private PlayerProperties mainPlayer;
     [SerializeField] private EndGameMenu endGameMenu;
     [SerializeField] private ScoreBoardManager scoreBoardManager;
-    [SerializeField] private ScoreButton _scoreButton;
-    [SerializeField] private ShopButton _shopButton;
     [SerializeField] private InGameMenu _inGameMenu;
-    [SerializeField] private CanvasMainMenu _canvasMainMenu;
-    //private const string GAME_STARTED = "isGameStarted";
 
     private void Start()
     {
@@ -28,7 +21,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("isGameRestarted", 0);
         }
-        StartMenu.GameFail = false;
+        EndGameMenu.GameFail = false;
     }
     private void OnApplicationQuit()
     {
@@ -43,40 +36,25 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1.0f;
     }
-
-    public void StartGame()
-    {
-        nameLoginPanel.nameLoginPanelGo.SetActive(false);
-    }
     public void GameOver()
     {
         gameover = true;
         GamePause();
+        nameLoginPanel.NameLoginPanelControl();
         if (!nameLoginPanel.GetComponent<NameLoginPanel>().isNameSaved)
         {
             scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
         }
-        if (StartMenu.GameFail == true)
+
+        if (EndGameMenu.GameFail == true)
         {
             endGameMenu.OpenMenu();
-            _canvasMainMenu.OpenMenu();
+            startMenu.CloseMenu();
             _inGameMenu.CloseMenu();
         }
         else
         {
             startMenu.OpenMenu();
-        }
-        if (nameLoginPanel.nameLoginPanelGo.activeSelf == true)
-        {
-            endGameMenu.restartButtonGo.SetActive(false);
-            _scoreButton._scoreButtonGo.SetActive(false);
-            _shopButton.shopButtonGo.SetActive(false);
-        }
-        else
-        {
-            endGameMenu.restartButtonGo.SetActive(true);
-            _scoreButton._scoreButtonGo.SetActive(true);
-            _shopButton.shopButtonGo.SetActive(true);
         }
     }
 }

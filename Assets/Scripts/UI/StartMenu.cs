@@ -5,21 +5,12 @@ using UnityEngine.UI;
 
 namespace Game.UI
 {
-    [RequireComponent(typeof(CanvasGroup))]
     public class StartMenu : Menu
     {
-        public static bool GameFail = false;
         public Button _startButton;
-        public GameObject startButton;
         [SerializeField] private ScoreCanvas _scoreCanvas;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
         [SerializeField] private InGameMenu _inGameMenu;
-        private CanvasGroup _canvasGroup;
-
-        private void Awake()
-        {
-            _canvasGroup = GetComponent<CanvasGroup>();
-        }
         private void Start()
         {
             if (PlayerPrefs.GetInt("isGameRestarted", 1) == 0)
@@ -70,7 +61,6 @@ namespace Game.UI
         {
             PlayerPrefs.SetInt("isGameStarted", 1);
             PlayerPrefs.Save();
-            _inGameMenu.OpenMenu();
             CloseMenu();
             GameManager.GameResume();
         }

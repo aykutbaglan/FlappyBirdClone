@@ -5,12 +5,7 @@ using UnityEngine;
 
 public class BirdCollision : MonoBehaviour
 {
-    public GameObject bird;
-    public GameObject gameovermenu;
     public GameManager gameManager;
-    [SerializeField] private EndGameMenu endGameMenu;
-    [SerializeField] private InGameMenu inGameMenu;
-
     private void Awake()
     {
         if (gameManager == null)
@@ -22,7 +17,7 @@ public class BirdCollision : MonoBehaviour
     {
         if (other.gameObject.tag =="obstacle")
         {
-            StartMenu.GameFail = true;
+            EndGameMenu.GameFail = true;
             gameManager.GameOver();
         }
     }

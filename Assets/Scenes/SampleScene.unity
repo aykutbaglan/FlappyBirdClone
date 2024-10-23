@@ -2075,9 +2075,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1275581067}
-        m_TargetAssemblyTypeName: ScoreButton, Assembly-CSharp
-        m_MethodName: OpenScoreMenu
+      - m_Target: {fileID: 1275581065}
+        m_TargetAssemblyTypeName: Game.UI.Menu, Assembly-CSharp
+        m_MethodName: CloseAllMenus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2600,18 +2600,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcad416e727af0b4bb8f1fffac0c16ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMenu: {fileID: 1788282949}
-  startButtonGo: {fileID: 5731630289760765325}
   gameover: 0
+  startMenu: {fileID: 1788282949}
   nameLoginPanel: {fileID: 7772733524239301817}
-  _scoreManager: {fileID: 110538278}
   mainPlayer: {fileID: 139665137}
   endGameMenu: {fileID: 1326572001}
   scoreBoardManager: {fileID: 3355140330583601255}
-  _scoreButton: {fileID: 1275581067}
-  _shopButton: {fileID: 914710966}
   _inGameMenu: {fileID: 1816814922}
-  _canvasMainMenu: {fileID: 1770117559}
 --- !u!4 &596880056
 Transform:
   m_ObjectHideFlags: 0
@@ -3785,7 +3780,6 @@ MonoBehaviour:
   - {fileID: 1275581065}
   - {fileID: 914710964}
   startMenu: {fileID: 1788282949}
-  _shopMenu: {fileID: 914710966}
   _canvasMainMenu: {fileID: 1770117559}
   _shopButton: {fileID: 914710966}
   _scoreCanvas: {fileID: 1275581065}
@@ -5350,13 +5344,6 @@ MonoBehaviour:
   - {fileID: 1326572001}
   _restartButton: {fileID: 1163371843}
   restartButtonGo: {fileID: 1163371841}
-  _startMenu: {fileID: 1788282949}
-  _inGameMenu: {fileID: 1816814922}
-  _scoreCanvas: {fileID: 1275581065}
-  _shopCanvas: {fileID: 914710964}
-  _shopButton: {fileID: 914710966}
-  _scoreButton: {fileID: 1275581067}
-  _canvasMainMenu: {fileID: 1770117559}
   _gameManager: {fileID: 596880055}
 --- !u!225 &1326572002
 CanvasGroup:
@@ -6361,10 +6348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79d15edea417db4a9cc19f768083746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startMenu: {fileID: 1788282949}
-  _canvasShopMenu: {fileID: 914710964}
-  _canvasScoreMenu: {fileID: 1275581065}
   _canvasGroup: {fileID: 1770117560}
+  menus: []
 --- !u!225 &1770117560
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6503,7 +6488,6 @@ MonoBehaviour:
   - {fileID: 1326572001}
   - {fileID: 1816814922}
   _startButton: {fileID: 2607177292175810251}
-  startButton: {fileID: 5731630289760765325}
   _scoreCanvas: {fileID: 1275581065}
   _canvasShopMenu: {fileID: 914710964}
   _inGameMenu: {fileID: 1816814922}
@@ -6641,11 +6625,6 @@ MonoBehaviour:
   - {fileID: 1326572001}
   - {fileID: 1275581065}
   - {fileID: 914710964}
-  _startMenu: {fileID: 1788282949}
-  endGameMenu: {fileID: 1326572001}
-  scoreCanvas: {fileID: 1275581065}
-  _shopButton: {fileID: 914710966}
-  _canvasMainMenu: {fileID: 1770117559}
 --- !u!225 &1816814923
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -12451,14 +12430,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c7cf0e567c16fa4199784449e4bfcdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputname: {fileID: 8020693499034936500}
   isNameSaved: 0
+  inputname: {fileID: 8020693499034936500}
   nameLoginPanelGo: {fileID: 7270657929045361274}
   infoText: {fileID: 4492247178645748954}
   scoreBoardManager: {fileID: 3355140330583601255}
   saveButton: {fileID: 7843108447941436770}
   _mainPlayer: {fileID: 139665137}
   _gameManager: {fileID: 596880055}
+  _scoreButton: {fileID: 1275581067}
+  _shopButton: {fileID: 914710966}
+  _endGameMenu: {fileID: 1326572001}
 --- !u!224 &7775983941469922492
 RectTransform:
   m_ObjectHideFlags: 0
