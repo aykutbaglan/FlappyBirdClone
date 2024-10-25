@@ -18,6 +18,7 @@ public class NameLoginPanel : MonoBehaviour
     [SerializeField] private ScoreButton _scoreButton;
     [SerializeField] private ShopButton _shopButton;
     [SerializeField] private EndGameMenu _endGameMenu;
+    [SerializeField] private CanvasMainMenu _canvasMainMenu;
     private bool _loginCompleated;
 
     private void OnEnable()
@@ -55,12 +56,14 @@ public class NameLoginPanel : MonoBehaviour
             _endGameMenu.restartButtonGo.SetActive(false);
             _scoreButton._scoreButtonGo.SetActive(false);
             _shopButton.shopButtonGo.SetActive(false);
+            _canvasMainMenu.CloseMenu();
         }
         else
         {
             _endGameMenu.restartButtonGo.SetActive(true);
             _scoreButton._scoreButtonGo.SetActive(true);
             _shopButton.shopButtonGo.SetActive(true);
+            _canvasMainMenu.OpenMenu();
         }
     }
 }

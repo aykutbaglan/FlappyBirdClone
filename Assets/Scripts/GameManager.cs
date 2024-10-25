@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private EndGameMenu endGameMenu;
     [SerializeField] private ScoreBoardManager scoreBoardManager;
     [SerializeField] private InGameMenu _inGameMenu;
+    [SerializeField] private CanvasMainMenu _canvasMainMenu;
 
     private void Start()
     {
@@ -40,21 +41,21 @@ public class GameManager : MonoBehaviour
     {
         gameover = true;
         GamePause();
-        nameLoginPanel.NameLoginPanelControl();
         if (!nameLoginPanel.GetComponent<NameLoginPanel>().isNameSaved)
         {
             scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
         }
-
         if (EndGameMenu.GameFail == true)
         {
             endGameMenu.OpenMenu();
+            nameLoginPanel.NameLoginPanelControl();
+            _canvasMainMenu.OpenMenu();
             startMenu.CloseMenu();
             _inGameMenu.CloseMenu();
         }
         else
         {
-            startMenu.OpenMenu();
+            startMenu.OpenStartMenu();
         }
     }
 }

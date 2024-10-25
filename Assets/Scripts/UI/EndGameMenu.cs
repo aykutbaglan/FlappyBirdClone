@@ -12,6 +12,12 @@ namespace Game.UI
         public GameObject restartButtonGo;
         public static bool GameFail = false;
         [SerializeField] private GameManager _gameManager;
+        [SerializeField] private CanvasMainMenu _canvasMainMenu;
+        [SerializeField] private InGameMenu _inGameMenu;
+        private void Start()
+        {
+            CanvasMainMenuControl();
+        }
         private void OnEnable()
         {
            _restartButton.onClick.AddListener(OnRestartButtonClicked);
@@ -19,6 +25,17 @@ namespace Game.UI
         private void OnDisable()
         {
            _restartButton.onClick.RemoveListener(OnRestartButtonClicked);
+        }
+        public void CanvasMainMenuControl()
+        {
+            if (PlayerPrefs.GetInt("isGameRestarted") == 1)
+            {
+                _canvasMainMenu.CloseMenu();
+            }
+            else
+            {
+                _canvasMainMenu.OpenMenu();
+            }
         }
         public void OnRestartButtonClicked()
         {
@@ -28,6 +45,8 @@ namespace Game.UI
             GameFail = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             GameManager.GameResume();
+            _inGameMenu.OpenMenu();
         }
-        }
+
     }
+}

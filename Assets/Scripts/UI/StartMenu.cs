@@ -11,11 +11,12 @@ namespace Game.UI
         [SerializeField] private ScoreCanvas _scoreCanvas;
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
         [SerializeField] private InGameMenu _inGameMenu;
+        [SerializeField] private CanvasMainMenu _canvasMainMenu;
         private void Start()
         {
             if (PlayerPrefs.GetInt("isGameRestarted", 1) == 0)
             {
-                OpenMenu();
+                OpenStartMenu();
             }
             else
             {
@@ -30,7 +31,7 @@ namespace Game.UI
         {
             _startButton.onClick.RemoveListener(OnStartButtonClicked);
         }
-        public void OpenMenu()
+        public void OpenStartMenu()
         {
             if (PlayerPrefs.GetInt("isGameRestarted", 0) == 1)
             {
@@ -61,8 +62,10 @@ namespace Game.UI
         {
             PlayerPrefs.SetInt("isGameStarted", 1);
             PlayerPrefs.Save();
-            CloseMenu();
+            base.CloseMenu();
             GameManager.GameResume();
+            _canvasMainMenu.CloseMenu();
+            _inGameMenu.OpenMenu();
         }
     }
 }

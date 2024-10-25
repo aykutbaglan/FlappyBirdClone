@@ -37,7 +37,7 @@ public class ScoreButton : MonoBehaviour
     {
         _scoreCanvas.CloseMenu();
         _closeScoreButton.SetActive(false);
-        _gameManager.GameOver(); //Onclick te bu fonk seçtiðimiz zaman scoreClose Button a týkladýðýmýzda startmenu açýlýyor. canvastan seçince açýlmýyor gameover() yok çünkü.
+        _gameManager.GameOver();
         
     }
 }
