@@ -28,14 +28,14 @@ public class ScoreButton : MonoBehaviour
     }
     public void OpenScoreMenu()
     {
-        _scoreCanvas.OpenMenu();
-        _startMenu.CloseMenu();
-        _endGameMenu.CloseMenu();
+        _scoreCanvas.OnEnter();
+        _startMenu.OnExit();
+        _endGameMenu.OnExit();
         _closeScoreButton.SetActive(true);
     }
     public void CloseScoreMenu()
     {
-        _scoreCanvas.CloseMenu();
+        _scoreCanvas.OnExit();
         _closeScoreButton.SetActive(false);
         _gameManager.GameOver();
         

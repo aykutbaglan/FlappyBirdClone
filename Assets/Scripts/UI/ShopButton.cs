@@ -29,14 +29,14 @@ public class ShopButton : MonoBehaviour
     }
     public void ShopOpenButton()
     { 
-        _canvasShopMenu.OpenMenu();
-        _startMenu.CloseMenu();
-        _endGameMenu.CloseMenu();
+        _canvasShopMenu.OnEnter();
+        _startMenu.OnExit();
+        _endGameMenu.OnExit();
         CloseShopButton.SetActive(true);
     }
     public void CloseMenu() 
     {
-        _canvasShopMenu.CloseMenu();
+        _canvasShopMenu.OnExit();
         CloseShopButton.SetActive(false);
         _gameManager.GameOver();
     }

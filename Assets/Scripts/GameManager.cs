@@ -47,11 +47,11 @@ public class GameManager : MonoBehaviour
         }
         if (EndGameMenu.GameFail == true)
         {
-            endGameMenu.OpenMenu();
+            endGameMenu.OnEnter();
             nameLoginPanel.NameLoginPanelControl();
-            _canvasMainMenu.OpenMenu();
-            startMenu.CloseMenu();
-            _inGameMenu.CloseMenu();
+            _canvasMainMenu.OnEnter();
+            startMenu.OnExit();
+            _inGameMenu.OnExit();
         }
         else
         {

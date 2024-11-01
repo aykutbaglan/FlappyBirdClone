@@ -20,7 +20,7 @@ namespace Game.UI
             }
             else
             {
-                CloseMenu();
+                OnExit();
             }
         }
         private void OnEnable()
@@ -31,15 +31,24 @@ namespace Game.UI
         {
             _startButton.onClick.RemoveListener(OnStartButtonClicked);
         }
+        public override void OnEnter()
+        {
+            base.OnEnter();
+        }
+        public override void OnExit()
+        {
+            base.OnExit();
+        }
         public void OpenStartMenu()
         {
             if (PlayerPrefs.GetInt("isGameRestarted", 0) == 1)
             {
                 GameManager.GameResume();
-                _inGameMenu.OpenMenu();
+                _inGameMenu.OnEnter();
                 return;
             }
-            base.OpenMenu();
+            //base.OnEnter();
+            OnEnter();
             GameManager.GamePause();
             if (_canvasShopMenu.IsCanvasActive == true)
             {
@@ -62,10 +71,11 @@ namespace Game.UI
         {
             PlayerPrefs.SetInt("isGameStarted", 1);
             PlayerPrefs.Save();
-            base.CloseMenu();
+            base.OnExit();
             GameManager.GameResume();
-            _canvasMainMenu.CloseMenu();
-            _inGameMenu.OpenMenu();
+            StateMachine.Instance.ChangeState(_inGameMenu);
+            //_canvasMainMenu.OnExit();
+            //_inGameMenu.OnEnter();
         }
     }
 }

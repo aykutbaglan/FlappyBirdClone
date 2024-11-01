@@ -30,11 +30,11 @@ namespace Game.UI
         {
             if (PlayerPrefs.GetInt("isGameRestarted") == 1)
             {
-                _canvasMainMenu.CloseMenu();
+                _canvasMainMenu.OnExit();
             }
             else
             {
-                _canvasMainMenu.OpenMenu();
+                _canvasMainMenu.OnEnter();
             }
         }
         public void OnRestartButtonClicked()
@@ -45,7 +45,7 @@ namespace Game.UI
             GameFail = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             GameManager.GameResume();
-            _inGameMenu.OpenMenu();
+            _inGameMenu.OnEnter();
         }
 
     }

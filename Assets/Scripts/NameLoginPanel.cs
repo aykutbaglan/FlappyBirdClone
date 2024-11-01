@@ -56,14 +56,14 @@ public class NameLoginPanel : MonoBehaviour
             _endGameMenu.restartButtonGo.SetActive(false);
             _scoreButton._scoreButtonGo.SetActive(false);
             _shopButton.shopButtonGo.SetActive(false);
-            _canvasMainMenu.CloseMenu();
+            _canvasMainMenu.OnExit();
         }
         else
         {
             _endGameMenu.restartButtonGo.SetActive(true);
             _scoreButton._scoreButtonGo.SetActive(true);
             _shopButton.shopButtonGo.SetActive(true);
-            _canvasMainMenu.OpenMenu();
+            _canvasMainMenu.OnEnter();
         }
     }
 }
