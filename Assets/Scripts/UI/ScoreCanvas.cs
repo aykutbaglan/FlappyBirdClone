@@ -18,7 +18,9 @@ namespace Game.UI
         public void ScoreButtonCloseOnclick()
         {
             base.CloseAllMenus();
-            _gameManager.GameOver();
+            _scoreButton._closeScoreButton.SetActive(false);
+            //_gameManager.GameOver();
+            startMenu.OnEnter();
         }
     }
 }

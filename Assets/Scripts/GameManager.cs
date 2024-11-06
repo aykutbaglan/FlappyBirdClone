@@ -8,13 +8,19 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public bool gameover = false;
-    [SerializeField] private StartMenu startMenu;
+    //[SerializeField] private StartMenu startMenu;
     [SerializeField] private NameLoginPanel nameLoginPanel;
     [SerializeField] private PlayerProperties mainPlayer;
     [SerializeField] private EndGameMenu endGameMenu;
     [SerializeField] private ScoreBoardManager scoreBoardManager;
-    [SerializeField] private InGameMenu _inGameMenu;
+    //[SerializeField] private InGameMenu _inGameMenu;
     [SerializeField] private CanvasMainMenu _canvasMainMenu;
+    [SerializeField] private StateMachine stateMachine;
+    [SerializeField] private StartGameState startGameState;
+    [SerializeField] private InGameState inGameState;
+    [SerializeField] private EndingState endingState;
+
+
 
     private void Start()
     {
@@ -41,21 +47,32 @@ public class GameManager : MonoBehaviour
     {
         gameover = true;
         GamePause();
-        if (!nameLoginPanel.GetComponent<NameLoginPanel>().isNameSaved)
-        {
-            scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
-        }
+        //if (!nameLoginPanel.GetComponent<NameLoginPanel>().isNameSaved)
+        //{
+        //    scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
+        //}
+        endingState.OnEnter();
+        stateMachine.TransitionToNextState();
         if (EndGameMenu.GameFail == true)
         {
-            endGameMenu.OnEnter();
+            //endGameMenu.OnEnter();
             nameLoginPanel.NameLoginPanelControl();
             _canvasMainMenu.OnEnter();
-            startMenu.OnExit();
-            _inGameMenu.OnExit();
+            startGameState.OnExit();
+            inGameState.OnExit();
         }
         else
         {
-            startMenu.OpenStartMenu();
+            //startMenu.OpenStartMenu();
         }
+    }
+    public void AfterSave()
+    {
+        gameover = true;
+        GamePause();
+        endingState.OnEnter();
+        startGameState.OnExit();
+        inGameState.OnExit();
+        _canvasMainMenu.OnEnter();
     }
 }

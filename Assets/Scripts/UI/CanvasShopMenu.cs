@@ -13,12 +13,15 @@ namespace Game.UI
         [SerializeField] private ShopButton _shopButton;
         [SerializeField] private ScoreCanvas _scoreCanvas;
         [SerializeField] private GameManager _gameManager;
+        [SerializeField] private ScoreButton _scoreButton;
         public bool IsCanvasActive => _canvasGroup.alpha > 0.5f;
         public bool IsStartButtonInteractable => _canvasGroup.alpha > 0.5f;
         public void ShopButtonCloseOnClick()
         {
             base.CloseAllMenus();
-            _gameManager.GameOver();
+            _shopButton.CloseShopButton.SetActive(false);
+            //_gameManager.GameOver();
+            startMenu.OnEnter();
         }
     }
 }

@@ -1,18 +1,23 @@
+using Game.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartGameState : MonoBehaviour
+public class StartGameState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private StartMenu startMenu;
+    public override void OnEnter()
     {
-        
+        StartGameEnter();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnExit()
     {
-        
+        menu.OnExit();
+    }
+    private void StartGameEnter()
+    {
+        menu.OnEnter();
+        startMenu.OpenStartMenu();
     }
 }

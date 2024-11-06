@@ -1,18 +1,41 @@
+using Game.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InGameState : MonoBehaviour
+public class InGameState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private birdController birdController;
+    private void Start()
     {
-        
+        birdController.enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnEnter()
     {
-        
+        Debug.Log("In Game State On Enter");
+        InGameStateEnter();
+    }
+
+    public override void OnExit()
+    {
+        IngameStateExit();
+    }
+    private void InGameStateEnter()
+    {
+        menu.OnEnter();
+        if (menu._canvasGroup.alpha == 1.0f)
+        {
+            birdController.enabled = true;
+        }
+    }
+    private void IngameStateExit()
+    {
+        menu.OnExit();
+        birdController.enabled = false;
+    }
+    private void Update()
+    {
+        birdController.enabled = menu._canvasGroup.alpha == 1.0f;
     }
 }

@@ -9,6 +9,7 @@ public class ScoreButton : MonoBehaviour
     public GameObject _closeScoreButton;
     public GameObject _scoreButtonGo;
     [SerializeField] private Button _scoreButton;
+    [SerializeField] private ShopButton shopButton;
     [SerializeField] private ScoreCanvas _scoreCanvas;
     [SerializeField] private StartMenu _startMenu;
     [SerializeField] private EndGameMenu _endGameMenu;
@@ -31,6 +32,7 @@ public class ScoreButton : MonoBehaviour
         _scoreCanvas.OnEnter();
         _startMenu.OnExit();
         _endGameMenu.OnExit();
+        shopButton.CloseShopButton.SetActive(false);
         _closeScoreButton.SetActive(true);
     }
     public void CloseScoreMenu()

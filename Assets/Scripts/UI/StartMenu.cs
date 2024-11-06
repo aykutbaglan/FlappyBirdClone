@@ -12,6 +12,9 @@ namespace Game.UI
         [SerializeField] private CanvasShopMenu _canvasShopMenu;
         [SerializeField] private InGameMenu _inGameMenu;
         [SerializeField] private CanvasMainMenu _canvasMainMenu;
+        [SerializeField] private State inGameState;
+        [SerializeField] private StateMachine stateMachine;
+
         private void Start()
         {
             if (PlayerPrefs.GetInt("isGameRestarted", 1) == 0)
@@ -22,6 +25,7 @@ namespace Game.UI
             {
                 OnExit();
             }
+
         }
         private void OnEnable()
         {
@@ -69,11 +73,12 @@ namespace Game.UI
         }
         private void OnStartButtonClicked()
         {
+            Debug.Log("sdaksadldsasda");
             PlayerPrefs.SetInt("isGameStarted", 1);
             PlayerPrefs.Save();
             base.OnExit();
             GameManager.GameResume();
-            StateMachine.Instance.ChangeState(_inGameMenu);
+            stateMachine.TransitionToNextState();
             //_canvasMainMenu.OnExit();
             //_inGameMenu.OnEnter();
         }

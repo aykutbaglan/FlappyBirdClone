@@ -14,6 +14,7 @@ namespace Game.UI
         [SerializeField] private GameManager _gameManager;
         [SerializeField] private CanvasMainMenu _canvasMainMenu;
         [SerializeField] private InGameMenu _inGameMenu;
+        [SerializeField] private StateMachine stateMachine;
         private void Start()
         {
             CanvasMainMenuControl();
@@ -45,7 +46,12 @@ namespace Game.UI
             GameFail = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             GameManager.GameResume();
-            _inGameMenu.OnEnter();
+
+
+            stateMachine.TransitionToNextState();
+
+            // stateMachine.ChangeState(_inGameMenu);
+            //_inGameMenu.OnEnter();
         }
 
     }

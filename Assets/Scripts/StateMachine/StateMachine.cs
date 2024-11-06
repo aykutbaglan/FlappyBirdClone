@@ -2,30 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Game.UI;
+using UnityEngine.UI;
 
-public class StateMachine
+public class StateMachine : MonoBehaviour
 {
-    private static StateMachine instance;
+    //private static StateMachine instance;
     //private Menu currentState;
-    private State currentState;
-    
-    //Singleton Instance  Eriþim Noktasý 
-    public static StateMachine Instance
+
+    ////Singleton Instance  Eriþim Noktasý 
+    //public static StateMachine Instance
+    //{
+    //    get
+    //    {
+    //        if (instance == null)
+    //        {
+    //            instance = new StateMachine();
+    //        }
+    //        return instance;
+    //    }
+    //}
+    // Constructor'ý private yaparak dýþarýdan örnek oluþturulmasýný engelleriz
+
+    public State currentState;
+    [SerializeField] private State[] states;
+    private int stateNum;
+
+    private void Start()
     {
-        get
+        if (PlayerPrefs.GetInt("isGameRestarted", 1) == 0)
         {
-            if (instance == null)
-            {
-                instance = new StateMachine();
-            }
-            return instance;
+            TransitionToNextState();
+        }
+        else
+        {
+            TransitionToSpecificState(1);
         }
     }
-    // Constructor'ý private yaparak dýþarýdan örnek oluþturulmasýný engelleriz
-    private StateMachine() { }
 
     public void ChangeState(State newState)
     {
+
         if (currentState != null)
         {
             currentState.OnExit();
@@ -33,9 +49,19 @@ public class StateMachine
             //currentState.OnExit();
         }
         currentState = newState;
-        if (currentState != null)
-        {
-            currentState.OnEnter();
-        }
+        currentState.OnEnter();
     }
+    public void TransitionToNextState()
+    {
+        ChangeState(states[stateNum]);
+        stateNum++;
+
+    }
+    public void TransitionToSpecificState(int stateId)
+    {
+        ChangeState(states[stateId]);
+        stateNum = stateId +1;
+    }
+
+
 }

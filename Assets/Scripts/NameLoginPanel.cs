@@ -47,7 +47,10 @@ public class NameLoginPanel : MonoBehaviour
         _loginCompleated = true;
         scoreBoardManager.SaveScoreBoardData(_mainPlayer.playerScore, inputname.text);
         isNameSaved = true;
-        _gameManager.GameOver();
+
+        //_gameManager.GameOver();
+        _gameManager.AfterSave();
+
     }
     public void NameLoginPanelControl()
     {

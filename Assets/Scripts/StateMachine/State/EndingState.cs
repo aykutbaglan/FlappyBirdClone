@@ -1,18 +1,31 @@
+using Game.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndingState : MonoBehaviour
+public class EndingState : State
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private EndGameMenu endGameMenu;
+    [SerializeField] private NameLoginPanel nameLoginPanel;
+    [SerializeField] private ScoreBoardManager scoreBoardManager;
+    [SerializeField] private PlayerProperties mainPlayer;
+    [SerializeField] private CanvasMainMenu canvasMainMenu;
+    public override void OnEnter()
     {
-        
+        EndingStateEnter();
+        if (!nameLoginPanel.GetComponent<NameLoginPanel>().isNameSaved)
+        {
+            scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore, mainPlayer.playerName);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void OnExit()
     {
-        
+
+    }
+    private void EndingStateEnter()
+    {
+        menu.OnEnter();
+        canvasMainMenu.OnEnter();
     }
 }
