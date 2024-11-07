@@ -29,6 +29,9 @@ public class NameLoginPanel : MonoBehaviour
             if (_loginCompleated)
             {
                 gameObject.SetActive(false);
+                //_canvasMainMenu.OnEnter();
+                Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
+
             }
         });
     }
@@ -60,6 +63,7 @@ public class NameLoginPanel : MonoBehaviour
             _scoreButton._scoreButtonGo.SetActive(false);
             _shopButton.shopButtonGo.SetActive(false);
             _canvasMainMenu.OnExit();
+            Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Kapandý");
         }
         else
         {
@@ -67,6 +71,8 @@ public class NameLoginPanel : MonoBehaviour
             _scoreButton._scoreButtonGo.SetActive(true);
             _shopButton.shopButtonGo.SetActive(true);
             _canvasMainMenu.OnEnter();
+            Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
+
         }
     }
 }

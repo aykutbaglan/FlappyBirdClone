@@ -51,15 +51,15 @@ public class GameManager : MonoBehaviour
         //{
         //    scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
         //}
-        endingState.OnEnter();
+       // endingState.OnEnter();
         stateMachine.TransitionToNextState();
         if (EndGameMenu.GameFail == true)
         {
             //endGameMenu.OnEnter();
             nameLoginPanel.NameLoginPanelControl();
             _canvasMainMenu.OnEnter();
-            startGameState.OnExit();
-            inGameState.OnExit();
+            //startGameState.OnExit();
+            //inGameState.OnExit();
         }
         else
         {
@@ -68,11 +68,10 @@ public class GameManager : MonoBehaviour
     }
     public void AfterSave()
     {
-        gameover = true;
         GamePause();
-        endingState.OnEnter();
-        startGameState.OnExit();
-        inGameState.OnExit();
+        //endingState.OnEnter();
+       // startGameState.OnExit();
+      //  inGameState.OnExit();
         _canvasMainMenu.OnEnter();
     }
 }

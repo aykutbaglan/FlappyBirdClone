@@ -13,21 +13,20 @@ public class InGameState : State
 
     public override void OnEnter()
     {
+        base.OnEnter();
         Debug.Log("In Game State On Enter");
         InGameStateEnter();
+        birdController.enabled = true;
     }
 
     public override void OnExit()
     {
+        base.OnExit();
         IngameStateExit();
     }
     private void InGameStateEnter()
     {
         menu.OnEnter();
-        if (menu._canvasGroup.alpha == 1.0f)
-        {
-            birdController.enabled = true;
-        }
     }
     private void IngameStateExit()
     {

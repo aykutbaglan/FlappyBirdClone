@@ -1726,6 +1726,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1 &314669399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 314669400}
+  m_Layer: 0
+  m_Name: InGameState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &314669400
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314669399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1477022880}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333239785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,6 +2462,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &540126092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540126093}
+  m_Layer: 0
+  m_Name: EndGameState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &540126093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540126092}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1477022880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &541221703
 GameObject:
@@ -3775,7 +3837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d835b3d4855ac734380deb2b094b4869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 914710964}
   _canvasGroup: {fileID: 914710965}
   menus:
   - {fileID: 1788282949}
@@ -3789,6 +3850,7 @@ MonoBehaviour:
   _scoreCanvas: {fileID: 1275581065}
   _gameManager: {fileID: 596880055}
   _scoreButton: {fileID: 1275581067}
+  endingState: {fileID: 1326572003}
 --- !u!225 &914710965
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4139,6 +4201,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3163497647792957113, guid: 29da285d125c581488ed2a89996d4f65, type: 3}
   m_PrefabInstance: {fileID: 1011451388}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1021788961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021788962}
+  m_Layer: 0
+  m_Name: StartMenuState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021788962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021788961}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1477022880}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1047366492
 GameObject:
   m_ObjectHideFlags: 0
@@ -5098,7 +5191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c296c53bdee1fb44a51b2a3e011dfb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 1275581065}
   _canvasGroup: {fileID: 1275581066}
   menus:
   - {fileID: 914710964}
@@ -5110,6 +5202,7 @@ MonoBehaviour:
   _canvasShopMenu: {fileID: 914710964}
   _scoreButton: {fileID: 1275581067}
   _gameManager: {fileID: 596880055}
+  endingState: {fileID: 1326572003}
 --- !u!225 &1275581066
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5345,7 +5438,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf989a7d1898c89479ea18b7bebe70b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 1326572001}
   _canvasGroup: {fileID: 1326572002}
   menus:
   - {fileID: 1788282949}
@@ -5384,6 +5476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9f8ba212db145e4abe99f96c0b60a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1326572002}
   menu: {fileID: 1326572001}
   endGameMenu: {fileID: 1326572001}
   nameLoginPanel: {fileID: 7772733524239301817}
@@ -5613,9 +5706,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   states:
-  - {fileID: 1788282949}
-  - {fileID: 1816814922}
-  - {fileID: 1326572001}
+  - {fileID: 1788282951}
+  - {fileID: 1816814924}
+  - {fileID: 1326572003}
 --- !u!4 &1477022880
 Transform:
   m_ObjectHideFlags: 0
@@ -5628,7 +5721,10 @@ Transform:
   m_LocalPosition: {x: 978.75, y: 2240.4375, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1021788962}
+  - {fileID: 314669400}
+  - {fileID: 540126093}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1589310658
@@ -6440,7 +6536,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b79d15edea417db4a9cc19f768083746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 1770117559}
   _canvasGroup: {fileID: 1770117560}
   menus:
   - {fileID: 1816814922}
@@ -6576,7 +6671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12b95ca705f86434a8fca2dac5510f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 1788282949}
   _canvasGroup: {fileID: 1788282950}
   menus: []
   _startButton: {fileID: 2607177292175810251}
@@ -6584,7 +6678,7 @@ MonoBehaviour:
   _canvasShopMenu: {fileID: 914710964}
   _inGameMenu: {fileID: 1816814922}
   _canvasMainMenu: {fileID: 1770117559}
-  inGameState: {fileID: 1816814922}
+  inGameState: {fileID: 1816814924}
   stateMachine: {fileID: 1477022879}
 --- !u!225 &1788282950
 CanvasGroup:
@@ -6610,8 +6704,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 577edff85904013449bdef31f27f0850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1788282950}
   menu: {fileID: 1788282949}
   startMenu: {fileID: 1788282949}
+  stateMachine: {fileID: 1477022879}
+  _scoreCanvas: {fileID: 1275581065}
+  _canvasShopMenu: {fileID: 914710964}
 --- !u!1 &1816814917
 GameObject:
   m_ObjectHideFlags: 0
@@ -6728,7 +6826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b65ee2870b909a449adb2b1124fd8b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menu: {fileID: 1816814922}
   _canvasGroup: {fileID: 1816814923}
   menus:
   - {fileID: 1788282949}
@@ -6761,6 +6858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307de9e089820c143a03494cf7302bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1816814923}
   menu: {fileID: 1816814922}
   birdController: {fileID: 1713430538}
 --- !u!1 &1881488256

@@ -38,7 +38,10 @@ public class StateMachine : MonoBehaviour
             TransitionToSpecificState(1);
         }
     }
-
+    /// <summary>
+    /// Parametre olarak bir state referansý vermen gerekir
+    /// </summary>
+    /// <param name="newState"></param>
     public void ChangeState(State newState)
     {
 
@@ -51,6 +54,9 @@ public class StateMachine : MonoBehaviour
         currentState = newState;
         currentState.OnEnter();
     }
+    /// <summary>
+    /// Bir sonraki State geçer. Dizi eleman sayýsýný geçtiðinde hata atar
+    /// </summary>
     public void TransitionToNextState()
     {
         ChangeState(states[stateNum]);
@@ -62,6 +68,11 @@ public class StateMachine : MonoBehaviour
         ChangeState(states[stateId]);
         stateNum = stateId +1;
     }
-
-
+    public void CloseAllState()
+    {
+        for (int i = 0; i < states.Length; i++)
+        {
+            states[i].OnExit();
+        }
+    }
 }

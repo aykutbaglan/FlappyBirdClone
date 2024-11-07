@@ -46,13 +46,9 @@ namespace Game.UI
             GameFail = true;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             GameManager.GameResume();
-
-
             stateMachine.TransitionToNextState();
-
             // stateMachine.ChangeState(_inGameMenu);
             //_inGameMenu.OnEnter();
         }
-
     }
 }

@@ -12,6 +12,7 @@ public class EndingState : State
     [SerializeField] private CanvasMainMenu canvasMainMenu;
     public override void OnEnter()
     {
+        base.OnEnter();
         EndingStateEnter();
         if (!nameLoginPanel.GetComponent<NameLoginPanel>().isNameSaved)
         {
@@ -21,7 +22,7 @@ public class EndingState : State
 
     public override void OnExit()
     {
-
+        base.OnExit();
     }
     private void EndingStateEnter()
     {

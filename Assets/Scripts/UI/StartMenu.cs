@@ -45,31 +45,7 @@ namespace Game.UI
         }
         public void OpenStartMenu()
         {
-            if (PlayerPrefs.GetInt("isGameRestarted", 0) == 1)
-            {
-                GameManager.GameResume();
-                _inGameMenu.OnEnter();
-                return;
-            }
-            //base.OnEnter();
-            OnEnter();
-            GameManager.GamePause();
-            if (_canvasShopMenu.IsCanvasActive == true)
-            {
-                _canvasGroup.blocksRaycasts = false;
-            }
-            else
-            {
-                _canvasGroup.blocksRaycasts = true;
-            }
-            if (_scoreCanvas.IsActiveStartAlpha == true || _canvasShopMenu.IsStartButtonInteractable == true)
-            {
-                _canvasGroup.interactable = false;
-            }
-            else
-            {
-                _canvasGroup.interactable = true;
-            }
+
         }
         private void OnStartButtonClicked()
         {

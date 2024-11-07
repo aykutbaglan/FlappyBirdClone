@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Game.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public abstract class Menu : State
+    public abstract class Menu : MonoBehaviour
     {
         public CanvasGroup _canvasGroup;
         public Menu[] menus;
@@ -13,14 +13,14 @@ namespace Game.UI
         {
             _canvasGroup = GetComponent<CanvasGroup>();
         }
-        public override void OnEnter()
+        public virtual void OnEnter()
         {
             CloseAllMenus();
             _canvasGroup.alpha = 1.0f;
             _canvasGroup.blocksRaycasts = true;
             _canvasGroup.interactable = true;
         }
-        public override void OnExit()
+        public virtual void OnExit()
         {
             _canvasGroup.alpha = 0.0f;
             _canvasGroup.blocksRaycasts = false;
@@ -33,6 +33,5 @@ namespace Game.UI
                 menus[i].OnExit();
             }
         }
-        
     }
 }
