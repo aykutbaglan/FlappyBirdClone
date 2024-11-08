@@ -16,7 +16,7 @@ public class ShopManager : MonoBehaviour
     public TMP_Text goldtxt;
     public int totalCoins = 0;
     [SerializeField] private StartMenu startMenu;
-    //public GameManager gameManager;
+    [SerializeField] private StartGameState startGameState;
     private bool[] _birdPurchased;
     
     private void Start()
@@ -43,7 +43,7 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            startMenu._startButton.interactable = false;
+            startGameState.startButton.interactable = false;
             //startMenu._startButton.gameObject.SetActive(false); // Kuþ seçilmediyse startButton gizlenmeli
         }
         //startButton.interactable = savedBirdIndex != -1;
@@ -101,7 +101,7 @@ public class ShopManager : MonoBehaviour
                 birdsimg[birdIndex].SetActive(true);
                 buyButtons[birdIndex].buttonText.text = "Selected";
                 PlayerPrefs.SetInt("SelectedBirdIndex", birdIndex);
-                startMenu._startButton.interactable = true;
+                startGameState.startButton.interactable = true;
                 UpdateShopButtons();
             }
             else

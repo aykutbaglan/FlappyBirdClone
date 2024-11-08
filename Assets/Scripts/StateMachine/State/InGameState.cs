@@ -1,6 +1,3 @@
-using Game.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InGameState : State
@@ -10,15 +7,13 @@ public class InGameState : State
     {
         birdController.enabled = false;
     }
-
     public override void OnEnter()
     {
         base.OnEnter();
-        Debug.Log("In Game State On Enter");
+        //Debug.Log("In Game State On Enter");
         InGameStateEnter();
         birdController.enabled = true;
     }
-
     public override void OnExit()
     {
         base.OnExit();

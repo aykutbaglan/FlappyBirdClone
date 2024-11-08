@@ -40,6 +40,5 @@ public class ScoreButton : MonoBehaviour
         _scoreCanvas.OnExit();
         _closeScoreButton.SetActive(false);
         _gameManager.GameOver();
-        
     }
 }

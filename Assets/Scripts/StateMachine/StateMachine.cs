@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Game.UI;
-using UnityEngine.UI;
 
 public class StateMachine : MonoBehaviour
 {
@@ -22,7 +18,6 @@ public class StateMachine : MonoBehaviour
     //    }
     //}
     // Constructor'ý private yaparak dýþarýdan örnek oluþturulmasýný engelleriz
-
     public State currentState;
     [SerializeField] private State[] states;
     private int stateNum;
@@ -44,12 +39,9 @@ public class StateMachine : MonoBehaviour
     /// <param name="newState"></param>
     public void ChangeState(State newState)
     {
-
         if (currentState != null)
         {
             currentState.OnExit();
-            //currentState = newState;
-            //currentState.OnExit();
         }
         currentState = newState;
         currentState.OnEnter();
@@ -63,13 +55,11 @@ public class StateMachine : MonoBehaviour
         {
             ChangeState(states[stateNum]);
             stateNum++;
-
         }
         else
         {
-            Debug.Log("State sýnýr aþýldý.");
+            //Debug.Log("State sýnýr aþýldý.");
         }
-
     }
     public void TransitionToSpecificState(int stateId)
     {

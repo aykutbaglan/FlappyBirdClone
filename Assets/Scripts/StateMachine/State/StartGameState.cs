@@ -1,17 +1,22 @@
 using Game.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class StartGameState : State
 {
-    [SerializeField] private StartMenu startMenu;
+    public Button startButton;
     [SerializeField] private StateMachine stateMachine;
     [SerializeField] private ScoreCanvas _scoreCanvas;
     [SerializeField] private CanvasShopMenu _canvasShopMenu;
-
-
     private const int IN_GAME_STATE_INDEX = 1;
+
+    private void OnEnable()
+    {
+        startButton.onClick.AddListener(OnStartButtonClicked);
+    }
+    private void OnDisable()
+    {
+        startButton.onClick.RemoveListener(OnStartButtonClicked);
+    }
     public override void OnEnter()
     {
 
@@ -50,6 +55,13 @@ public class StartGameState : State
     private void StartGameEnter()
     {
         menu.OnEnter();
-        startMenu.OpenStartMenu();
+    }
+    private void OnStartButtonClicked()
+    {
+        PlayerPrefs.SetInt("isGameStarted", 1);
+        PlayerPrefs.Save();
+        base.OnExit();
+        GameManager.GameResume();
+        stateMachine.TransitionToNextState();
     }
 }

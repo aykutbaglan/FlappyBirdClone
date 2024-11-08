@@ -11,7 +11,6 @@ public class ShopButton : MonoBehaviour
     [SerializeField] private Button _shopButton;
     [SerializeField] private ScoreButton scoreButton;
     [SerializeField] private CanvasShopMenu _canvasShopMenu;
-    [SerializeField] private CanvasMainMenu _canvasMainMenu;
     [SerializeField] private StartMenu _startMenu;
     [SerializeField] private EndGameMenu _endGameMenu;
     [SerializeField] private GameManager _gameManager;

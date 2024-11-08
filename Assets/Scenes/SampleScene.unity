@@ -5446,12 +5446,7 @@ MonoBehaviour:
   - {fileID: 914710964}
   - {fileID: 1326572001}
   - {fileID: 1770117559}
-  _restartButton: {fileID: 1163371843}
-  restartButtonGo: {fileID: 1163371841}
-  _gameManager: {fileID: 596880055}
   _canvasMainMenu: {fileID: 1770117559}
-  _inGameMenu: {fileID: 1816814922}
-  stateMachine: {fileID: 1477022879}
 --- !u!225 &1326572002
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6709,6 +6704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1788282950}
   menu: {fileID: 1788282949}
+  startButton: {fileID: 2607177292175810251}
   startMenu: {fileID: 1788282949}
   stateMachine: {fileID: 1477022879}
   _scoreCanvas: {fileID: 1275581065}
@@ -10452,6 +10448,7 @@ MonoBehaviour:
   goldtxt: {fileID: 309010719985269053}
   totalCoins: 0
   startMenu: {fileID: 1788282949}
+  startGameState: {fileID: 1788282951}
 --- !u!114 &3572123502832232624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12667,8 +12664,8 @@ MonoBehaviour:
   _gameManager: {fileID: 596880055}
   _scoreButton: {fileID: 1275581067}
   _shopButton: {fileID: 914710966}
-  _endGameMenu: {fileID: 1326572001}
   _canvasMainMenu: {fileID: 1770117559}
+  endingState: {fileID: 1326572003}
 --- !u!224 &7775983941469922492
 RectTransform:
   m_ObjectHideFlags: 0

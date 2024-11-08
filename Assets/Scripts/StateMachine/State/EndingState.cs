@@ -1,15 +1,13 @@
 using Game.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class EndingState : State
 {
+    public static bool GameFail = false;
     public GameObject restartButtonGo;
     [SerializeField] private Button restartButton;
-    [SerializeField] private EndGameMenu endGameMenu;
     [SerializeField] private NameLoginPanel nameLoginPanel;
     [SerializeField] private ScoreBoardManager scoreBoardManager;
     [SerializeField] private PlayerProperties mainPlayer;
@@ -32,7 +30,6 @@ public class EndingState : State
             scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore, mainPlayer.playerName);
         }
     }
-
     public override void OnExit()
     {
         base.OnExit();
@@ -47,7 +44,7 @@ public class EndingState : State
         PlayerPrefs.SetInt("isGameRestarted", 1);
         PlayerPrefs.Save();
         gameManager.gameover = true;
-        EndGameMenu.GameFail = true;
+        EndingState.GameFail = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         GameManager.GameResume();
     }

@@ -4,19 +4,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool gameover = false;
-    //[SerializeField] private StartMenu startMenu;
     [SerializeField] private NameLoginPanel nameLoginPanel;
     [SerializeField] private PlayerProperties mainPlayer;
     [SerializeField] private EndGameMenu endGameMenu;
     [SerializeField] private ScoreBoardManager scoreBoardManager;
-    //[SerializeField] private InGameMenu _inGameMenu;
     [SerializeField] private CanvasMainMenu _canvasMainMenu;
     [SerializeField] private StateMachine stateMachine;
     [SerializeField] private StartGameState startGameState;
     [SerializeField] private InGameState inGameState;
     [SerializeField] private EndingState endingState;
-
-
 
     private void Start()
     {
@@ -24,7 +20,7 @@ public class GameManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("isGameRestarted", 0);
         }
-        EndGameMenu.GameFail = false;
+        EndingState.GameFail = false;
     }
     private void OnApplicationQuit()
     {
@@ -43,31 +39,16 @@ public class GameManager : MonoBehaviour
     {
         gameover = true;
         GamePause();
-        //if (!nameLoginPanel.GetComponent<NameLoginPanel>().isNameSaved)
-        //{
-        //    scoreBoardManager.ShowNameLoginPanel(mainPlayer.playerScore,mainPlayer.playerName);
-        //}
-       // endingState.OnEnter();
         stateMachine.TransitionToNextState();
-        if (EndGameMenu.GameFail == true)
+        if (EndingState.GameFail == true)
         {
-            //endGameMenu.OnEnter();
             nameLoginPanel.NameLoginPanelControl();
             _canvasMainMenu.OnEnter();
-            //startGameState.OnExit();
-            //inGameState.OnExit();
-        }
-        else
-        {
-            //startMenu.OpenStartMenu();
         }
     }
     public void AfterSave()
     {
         GamePause();
-        //endingState.OnEnter();
-       // startGameState.OnExit();
-      //  inGameState.OnExit();
         _canvasMainMenu.OnEnter();
     }
 }

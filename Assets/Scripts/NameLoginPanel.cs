@@ -1,6 +1,4 @@
 using Game.UI;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,8 +15,8 @@ public class NameLoginPanel : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private ScoreButton _scoreButton;
     [SerializeField] private ShopButton _shopButton;
-    [SerializeField] private EndGameMenu _endGameMenu;
     [SerializeField] private CanvasMainMenu _canvasMainMenu;
+    [SerializeField] private EndingState endingState;
     private bool _loginCompleated;
 
     private void OnEnable()
@@ -30,9 +28,7 @@ public class NameLoginPanel : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 ActiveButtons();
-                //_canvasMainMenu.OnEnter();
-                Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
-
+                //Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
             }
         });
     }
@@ -51,21 +47,18 @@ public class NameLoginPanel : MonoBehaviour
         _loginCompleated = true;
         scoreBoardManager.SaveScoreBoardData(_mainPlayer.playerScore, inputname.text);
         isNameSaved = true;
-
-        //_gameManager.GameOver();
         _gameManager.AfterSave();
-
     }
     private void ActiveButtons()
     {
-        _endGameMenu.restartButtonGo.SetActive(true);
+        endingState.restartButtonGo.SetActive(true);
         _scoreButton._scoreButtonGo.SetActive(true);
         _shopButton.shopButtonGo.SetActive(true);
         _canvasMainMenu.OnEnter();
     }
     private void DisableButtons()
     {
-        _endGameMenu.restartButtonGo.SetActive(false);
+        endingState.restartButtonGo.SetActive(false);
         _scoreButton._scoreButtonGo.SetActive(false);
         _shopButton.shopButtonGo.SetActive(false);
         _canvasMainMenu.OnExit();
@@ -75,13 +68,12 @@ public class NameLoginPanel : MonoBehaviour
         if (nameLoginPanelGo.activeSelf == true)
         {
             DisableButtons();
-            Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Kapandý");
+            //Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Kapandý");
         }
         else
         {
             ActiveButtons();
-            Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
-
+            //Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
         }
     }
 }

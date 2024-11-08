@@ -17,7 +17,7 @@ public class BirdCollision : MonoBehaviour
     {
         if (other.gameObject.tag =="obstacle")
         {
-            EndGameMenu.GameFail = true;
+            EndingState.GameFail = true;
             gameManager.GameOver();
         }
     }
