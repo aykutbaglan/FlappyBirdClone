@@ -29,6 +29,7 @@ public class NameLoginPanel : MonoBehaviour
             if (_loginCompleated)
             {
                 gameObject.SetActive(false);
+                ActiveButtons();
                 //_canvasMainMenu.OnEnter();
                 Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
 
@@ -55,22 +56,30 @@ public class NameLoginPanel : MonoBehaviour
         _gameManager.AfterSave();
 
     }
+    private void ActiveButtons()
+    {
+        _endGameMenu.restartButtonGo.SetActive(true);
+        _scoreButton._scoreButtonGo.SetActive(true);
+        _shopButton.shopButtonGo.SetActive(true);
+        _canvasMainMenu.OnEnter();
+    }
+    private void DisableButtons()
+    {
+        _endGameMenu.restartButtonGo.SetActive(false);
+        _scoreButton._scoreButtonGo.SetActive(false);
+        _shopButton.shopButtonGo.SetActive(false);
+        _canvasMainMenu.OnExit();
+    }
     public void NameLoginPanelControl()
     {
         if (nameLoginPanelGo.activeSelf == true)
         {
-            _endGameMenu.restartButtonGo.SetActive(false);
-            _scoreButton._scoreButtonGo.SetActive(false);
-            _shopButton.shopButtonGo.SetActive(false);
-            _canvasMainMenu.OnExit();
+            DisableButtons();
             Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Kapandý");
         }
         else
         {
-            _endGameMenu.restartButtonGo.SetActive(true);
-            _scoreButton._scoreButtonGo.SetActive(true);
-            _shopButton.shopButtonGo.SetActive(true);
-            _canvasMainMenu.OnEnter();
+            ActiveButtons();
             Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
 
         }

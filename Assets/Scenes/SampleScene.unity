@@ -5478,11 +5478,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 1326572002}
   menu: {fileID: 1326572001}
+  restartButtonGo: {fileID: 1163371841}
+  restartButton: {fileID: 1163371843}
   endGameMenu: {fileID: 1326572001}
   nameLoginPanel: {fileID: 7772733524239301817}
   scoreBoardManager: {fileID: 3355140330583601255}
   mainPlayer: {fileID: 139665137}
   canvasMainMenu: {fileID: 1770117559}
+  gameManager: {fileID: 596880055}
 --- !u!1 &1412182792
 GameObject:
   m_ObjectHideFlags: 0

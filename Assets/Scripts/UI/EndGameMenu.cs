@@ -19,14 +19,6 @@ namespace Game.UI
         {
             CanvasMainMenuControl();
         }
-        private void OnEnable()
-        {
-           _restartButton.onClick.AddListener(OnRestartButtonClicked);
-        }
-        private void OnDisable()
-        {
-           _restartButton.onClick.RemoveListener(OnRestartButtonClicked);
-        }
         public void CanvasMainMenuControl()
         {
             if (PlayerPrefs.GetInt("isGameRestarted") == 1)
@@ -37,18 +29,6 @@ namespace Game.UI
             {
                 _canvasMainMenu.OnEnter();
             }
-        }
-        public void OnRestartButtonClicked()
-        {
-            PlayerPrefs.SetInt("isGameRestarted",1);
-            PlayerPrefs.Save();
-            _gameManager.gameover = true;
-            GameFail = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            GameManager.GameResume();
-            stateMachine.TransitionToNextState();
-            // stateMachine.ChangeState(_inGameMenu);
-            //_inGameMenu.OnEnter();
         }
     }
 }

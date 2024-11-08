@@ -59,8 +59,16 @@ public class StateMachine : MonoBehaviour
     /// </summary>
     public void TransitionToNextState()
     {
-        ChangeState(states[stateNum]);
-        stateNum++;
+        if (stateNum < states.Length)
+        {
+            ChangeState(states[stateNum]);
+            stateNum++;
+
+        }
+        else
+        {
+            Debug.Log("State sýnýr aþýldý.");
+        }
 
     }
     public void TransitionToSpecificState(int stateId)
