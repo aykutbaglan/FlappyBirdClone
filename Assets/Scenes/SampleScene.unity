@@ -653,9 +653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c18866733d772e42b838d09c51386c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 4680056033878620646}
-  goldScoreText: {fileID: 309010719985269053}
   mainPlayer: {fileID: 139665137}
+  goldScoreText: {fileID: 309010719985269053}
+  scoreText: {fileID: 4680056033878620646}
 --- !u!1001 &121407020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1735,6 +1735,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314669400}
+  - component: {fileID: 314669401}
   m_Layer: 0
   m_Name: InGameState
   m_TagString: Untagged
@@ -1757,6 +1758,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1477022880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &314669401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314669399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307de9e089820c143a03494cf7302bc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1816814923}
+  menu: {fileID: 1816814922}
+  birdController: {fileID: 1713430538}
 --- !u!1 &333239785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2472,6 +2488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 540126093}
+  - component: {fileID: 540126094}
   m_Layer: 0
   m_Name: EndGameState
   m_TagString: Untagged
@@ -2494,6 +2511,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1477022880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &540126094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540126092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f8ba212db145e4abe99f96c0b60a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1326572002}
+  menu: {fileID: 1326572001}
+  restartButtonGo: {fileID: 1163371841}
+  restartButton: {fileID: 1163371843}
+  nameLoginPanel: {fileID: 7772733524239301817}
+  scoreBoardManager: {fileID: 3355140330583601255}
+  mainPlayer: {fileID: 139665137}
+  canvasMainMenu: {fileID: 1770117559}
+  gameManager: {fileID: 596880055}
 --- !u!1 &541221703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2669,9 +2707,9 @@ MonoBehaviour:
   scoreBoardManager: {fileID: 3355140330583601255}
   _canvasMainMenu: {fileID: 1770117559}
   stateMachine: {fileID: 1477022879}
-  startGameState: {fileID: 1788282951}
-  inGameState: {fileID: 1816814924}
-  endingState: {fileID: 1326572003}
+  startState: {fileID: 1021788963}
+  inGameState: {fileID: 314669401}
+  endingState: {fileID: 540126094}
 --- !u!4 &596880056
 Transform:
   m_ObjectHideFlags: 0
@@ -3736,7 +3774,7 @@ GameObject:
   - component: {fileID: 914710964}
   - component: {fileID: 914710966}
   m_Layer: 5
-  m_Name: ShopMenuCanvas
+  m_Name: ShopCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3845,12 +3883,9 @@ MonoBehaviour:
   - {fileID: 1275581065}
   - {fileID: 914710964}
   startMenu: {fileID: 1788282949}
-  _canvasMainMenu: {fileID: 1770117559}
   _shopButton: {fileID: 914710966}
-  _scoreCanvas: {fileID: 1275581065}
   _gameManager: {fileID: 596880055}
-  _scoreButton: {fileID: 1275581067}
-  endingState: {fileID: 1326572003}
+  endingState: {fileID: 540126094}
 --- !u!225 &914710965
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3879,8 +3914,7 @@ MonoBehaviour:
   shopButtonGo: {fileID: 4671642594053999989}
   _shopButton: {fileID: 1972645379505657523}
   scoreButton: {fileID: 1275581067}
-  _canvasShopMenu: {fileID: 914710964}
-  _canvasMainMenu: {fileID: 1770117559}
+  shopcanvas: {fileID: 914710964}
   _startMenu: {fileID: 1788282949}
   _endGameMenu: {fileID: 1326572001}
   _gameManager: {fileID: 596880055}
@@ -4210,6 +4244,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1021788962}
+  - component: {fileID: 1021788963}
   m_Layer: 0
   m_Name: StartMenuState
   m_TagString: Untagged
@@ -4232,6 +4267,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1477022880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021788963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021788961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577edff85904013449bdef31f27f0850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1788282950}
+  menu: {fileID: 1788282949}
+  startButton: {fileID: 2607177292175810251}
+  stateMachine: {fileID: 1477022879}
+  _scoreCanvas: {fileID: 1275581065}
+  shopCanvas: {fileID: 914710964}
+  endGameMenu: {fileID: 1326572001}
 --- !u!1 &1047366492
 GameObject:
   m_ObjectHideFlags: 0
@@ -4655,19 +4709,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1163371844}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1326572001}
-        m_TargetAssemblyTypeName: Game.UI.EndGameMenu, Assembly-CSharp
-        m_MethodName: OnRestartButtonClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1163371844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5090,7 +5132,7 @@ GameObject:
   - component: {fileID: 1275581065}
   - component: {fileID: 1275581067}
   m_Layer: 5
-  m_Name: ScoreMenuCanvas
+  m_Name: ScoreCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5199,10 +5241,9 @@ MonoBehaviour:
   - {fileID: 1326572001}
   - {fileID: 1816814922}
   startMenu: {fileID: 1788282949}
-  _canvasShopMenu: {fileID: 914710964}
   _scoreButton: {fileID: 1275581067}
   _gameManager: {fileID: 596880055}
-  endingState: {fileID: 1326572003}
+  endingState: {fileID: 540126094}
 --- !u!225 &1275581066
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5333,9 +5374,8 @@ GameObject:
   - component: {fileID: 1326571997}
   - component: {fileID: 1326572002}
   - component: {fileID: 1326572001}
-  - component: {fileID: 1326572003}
   m_Layer: 5
-  m_Name: EndGameMenuCanvas
+  m_Name: EndGameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5459,28 +5499,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1326572003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326571996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9f8ba212db145e4abe99f96c0b60a99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 1326572002}
-  menu: {fileID: 1326572001}
-  restartButtonGo: {fileID: 1163371841}
-  restartButton: {fileID: 1163371843}
-  endGameMenu: {fileID: 1326572001}
-  nameLoginPanel: {fileID: 7772733524239301817}
-  scoreBoardManager: {fileID: 3355140330583601255}
-  mainPlayer: {fileID: 139665137}
-  canvasMainMenu: {fileID: 1770117559}
-  gameManager: {fileID: 596880055}
 --- !u!1 &1412182792
 GameObject:
   m_ObjectHideFlags: 0
@@ -5495,7 +5513,7 @@ GameObject:
   - component: {fileID: 1412182795}
   - component: {fileID: 1412182798}
   m_Layer: 0
-  m_Name: ScoreGoldScore
+  m_Name: Score&GoldScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5608,6 +5626,7 @@ GameObject:
   - component: {fileID: 1415578234}
   - component: {fileID: 1415578236}
   - component: {fileID: 1415578235}
+  - component: {fileID: 1415578237}
   m_Layer: 5
   m_Name: EndGamePanel
   m_TagString: Untagged
@@ -5673,6 +5692,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415578233}
   m_CullTransparentMesh: 1
+--- !u!225 &1415578237
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415578233}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1477022878
 GameObject:
   m_ObjectHideFlags: 0
@@ -5704,9 +5735,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentState: {fileID: 0}
   states:
-  - {fileID: 1788282951}
-  - {fileID: 1816814924}
-  - {fileID: 1326572003}
+  - {fileID: 1021788963}
+  - {fileID: 314669401}
+  - {fileID: 540126094}
 --- !u!4 &1477022880
 Transform:
   m_ObjectHideFlags: 0
@@ -6430,7 +6461,7 @@ GameObject:
   - component: {fileID: 1770117560}
   - component: {fileID: 1770117559}
   m_Layer: 5
-  m_Name: MainMenuCanvas
+  m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6564,9 +6595,8 @@ GameObject:
   - component: {fileID: 1788282945}
   - component: {fileID: 1788282950}
   - component: {fileID: 1788282949}
-  - component: {fileID: 1788282951}
   m_Layer: 5
-  m_Name: StartMenuCanvas
+  m_Name: StartMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6671,13 +6701,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canvasGroup: {fileID: 1788282950}
   menus: []
-  _startButton: {fileID: 2607177292175810251}
-  _scoreCanvas: {fileID: 1275581065}
-  _canvasShopMenu: {fileID: 914710964}
-  _inGameMenu: {fileID: 1816814922}
-  _canvasMainMenu: {fileID: 1770117559}
-  inGameState: {fileID: 1816814924}
-  stateMachine: {fileID: 1477022879}
 --- !u!225 &1788282950
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6690,25 +6713,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1788282951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1788282944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 577edff85904013449bdef31f27f0850, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 1788282950}
-  menu: {fileID: 1788282949}
-  startButton: {fileID: 2607177292175810251}
-  startMenu: {fileID: 1788282949}
-  stateMachine: {fileID: 1477022879}
-  _scoreCanvas: {fileID: 1275581065}
-  _canvasShopMenu: {fileID: 914710964}
 --- !u!1 &1816814917
 GameObject:
   m_ObjectHideFlags: 0
@@ -6723,9 +6727,8 @@ GameObject:
   - component: {fileID: 1816814918}
   - component: {fileID: 1816814923}
   - component: {fileID: 1816814922}
-  - component: {fileID: 1816814924}
   m_Layer: 5
-  m_Name: InGameMenuCanvas
+  m_Name: InGameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6845,21 +6848,6 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!114 &1816814924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816814917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 307de9e089820c143a03494cf7302bc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 1816814923}
-  menu: {fileID: 1816814922}
-  birdController: {fileID: 1713430538}
 --- !u!1 &1881488256
 GameObject:
   m_ObjectHideFlags: 0
@@ -10368,7 +10356,7 @@ MonoBehaviour:
   - {fileID: 2007973620}
   - {fileID: 2041301617}
   - {fileID: 1660501764}
-  nameLoginPanel: {fileID: 7270657929045361274}
+  nameLoginPanel: {fileID: 7772733524239301817}
 --- !u!222 &3373812705618351872
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10448,7 +10436,7 @@ MonoBehaviour:
   goldtxt: {fileID: 309010719985269053}
   totalCoins: 0
   startMenu: {fileID: 1788282949}
-  startGameState: {fileID: 1788282951}
+  startState: {fileID: 1021788963}
 --- !u!114 &3572123502832232624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12665,7 +12653,7 @@ MonoBehaviour:
   _scoreButton: {fileID: 1275581067}
   _shopButton: {fileID: 914710966}
   _canvasMainMenu: {fileID: 1770117559}
-  endingState: {fileID: 1326572003}
+  endingState: {fileID: 540126094}
 --- !u!224 &7775983941469922492
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,12 +1,13 @@
 using Game.UI;
 using UnityEngine;
 using UnityEngine.UI;
-public class StartGameState : State
+public class StartState : State
 {
     public Button startButton;
     [SerializeField] private StateMachine stateMachine;
     [SerializeField] private ScoreCanvas _scoreCanvas;
-    [SerializeField] private CanvasShopMenu _canvasShopMenu;
+    [SerializeField] private ShopCanvas shopCanvas;
+    [SerializeField] private EndGameMenu endGameMenu;
     private const int IN_GAME_STATE_INDEX = 1;
 
     private void OnEnable()
@@ -19,7 +20,7 @@ public class StartGameState : State
     }
     public override void OnEnter()
     {
-
+        endGameMenu.CanvasMainMenuControl();
         base.OnEnter();
         StartGameEnter();
         if (PlayerPrefs.GetInt("isGameRestarted", 0) == 1)
@@ -30,7 +31,7 @@ public class StartGameState : State
         }
 
         GameManager.GamePause();
-        if (_canvasShopMenu.IsCanvasActive == true)
+        if (shopCanvas.IsCanvasActive == true)
         {
             canvasGroup.blocksRaycasts = false;
         }
@@ -38,7 +39,7 @@ public class StartGameState : State
         {
             canvasGroup.blocksRaycasts = true;
         }
-        if (_scoreCanvas.IsActiveStartAlpha == true || _canvasShopMenu.IsStartButtonInteractable == true)
+        if (_scoreCanvas.IsActiveStartAlpha == true || shopCanvas.IsStartButtonInteractable == true)
         {
             canvasGroup.interactable = false;
         }

@@ -3,10 +3,7 @@ using UnityEngine;
 public class InGameState : State
 {
     [SerializeField] private birdController birdController;
-    private void Start()
-    {
-        birdController.enabled = false;
-    }
+
     public override void OnEnter()
     {
         base.OnEnter();
@@ -27,9 +24,5 @@ public class InGameState : State
     {
         menu.OnExit();
         birdController.enabled = false;
-    }
-    private void Update()
-    {
-        birdController.enabled = menu._canvasGroup.alpha == 1.0f;
     }
 }

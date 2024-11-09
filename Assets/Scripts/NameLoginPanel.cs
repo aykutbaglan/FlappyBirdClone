@@ -28,7 +28,6 @@ public class NameLoginPanel : MonoBehaviour
             {
                 gameObject.SetActive(false);
                 ActiveButtons();
-                //Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
             }
         });
     }
@@ -68,12 +67,10 @@ public class NameLoginPanel : MonoBehaviour
         if (nameLoginPanelGo.activeSelf == true)
         {
             DisableButtons();
-            //Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Kapandý");
         }
         else
         {
             ActiveButtons();
-            //Debug.Log("NameLoginPanel Kapalý CanvasMainMenu Açýldý");
         }
     }
 }

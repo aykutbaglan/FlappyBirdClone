@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ScoreBoardManager scoreBoardManager;
     [SerializeField] private CanvasMainMenu _canvasMainMenu;
     [SerializeField] private StateMachine stateMachine;
-    [SerializeField] private StartGameState startGameState;
+    [SerializeField] private StartState startState;
     [SerializeField] private InGameState inGameState;
     [SerializeField] private EndingState endingState;
 

@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TMP_Text scoreText;
+    public PlayerProperties mainPlayer;
+    [SerializeField] public TMP_Text goldScoreText;
+    [SerializeField] private TMP_Text scoreText;
     private int goldScore = 0;
     //public TMP_Text highScoreText;
     //public GameObject highScoreTextGo;
-    public TMP_Text goldScoreText;
-    public PlayerProperties mainPlayer;
+    
     private void Start()
     {
         mainPlayer.playerScore = 0;

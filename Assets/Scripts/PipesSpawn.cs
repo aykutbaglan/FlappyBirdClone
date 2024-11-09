@@ -1,15 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PipesSpawn : MonoBehaviour
 {
-    public GameObject pipes;
-    public Transform pipesSpawner;
-    public float spawnspeed = 10f;
-    public float upHeight = 1f;
-    public float downHeight = -5f;
-    public float xPos = 25f;
+    [SerializeField] private GameObject pipes;
+    [SerializeField] private Transform pipesSpawner;
+    [SerializeField] private float spawnspeed = 10f;
+    [SerializeField] private float upHeight = 1f;
+    [SerializeField] private float downHeight = -5f;
+    [SerializeField] private float xPos = 25f;
 
     private void Start()
     {
@@ -22,7 +20,8 @@ public class PipesSpawn : MonoBehaviour
     public void Spawn()
     {
         Vector3 pipesSpawner = new Vector3(transform.position.x + xPos,UnityEngine.Random.Range(downHeight,upHeight));
-        Instantiate(pipes,pipesSpawner,Quaternion.identity);
+        GameObject newpipe = Instantiate(pipes,pipesSpawner,Quaternion.identity);
+        Destroy(newpipe,7f);
         Invoke(nameof(Spawn),2f);
     }
 }

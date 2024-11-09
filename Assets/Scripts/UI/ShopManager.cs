@@ -1,8 +1,5 @@
 using Game.UI;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +13,7 @@ public class ShopManager : MonoBehaviour
     public TMP_Text goldtxt;
     public int totalCoins = 0;
     [SerializeField] private StartMenu startMenu;
-    [SerializeField] private StartGameState startGameState;
+    [SerializeField] private StartState startState;
     private bool[] _birdPurchased;
     
     private void Start()
@@ -43,7 +40,7 @@ public class ShopManager : MonoBehaviour
         }
         else
         {
-            startGameState.startButton.interactable = false;
+            startState.startButton.interactable = false;
             //startMenu._startButton.gameObject.SetActive(false); // Kuþ seçilmediyse startButton gizlenmeli
         }
         //startButton.interactable = savedBirdIndex != -1;
@@ -101,7 +98,7 @@ public class ShopManager : MonoBehaviour
                 birdsimg[birdIndex].SetActive(true);
                 buyButtons[birdIndex].buttonText.text = "Selected";
                 PlayerPrefs.SetInt("SelectedBirdIndex", birdIndex);
-                startGameState.startButton.interactable = true;
+                startState.startButton.interactable = true;
                 UpdateShopButtons();
             }
             else

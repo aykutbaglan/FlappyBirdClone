@@ -1,6 +1,4 @@
 using Game.UI;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +8,7 @@ public class ShopButton : MonoBehaviour
     public GameObject shopButtonGo;
     [SerializeField] private Button _shopButton;
     [SerializeField] private ScoreButton scoreButton;
-    [SerializeField] private CanvasShopMenu _canvasShopMenu;
+    [SerializeField] private ShopCanvas shopcanvas;
     [SerializeField] private StartMenu _startMenu;
     [SerializeField] private EndGameMenu _endGameMenu;
     [SerializeField] private GameManager _gameManager;
@@ -29,7 +27,7 @@ public class ShopButton : MonoBehaviour
     }
     public void ShopOpenButton()
     { 
-        _canvasShopMenu.OnEnter();
+        shopcanvas.OnEnter();
         _startMenu.OnExit();
         _endGameMenu.OnExit();
         scoreButton._closeScoreButton.SetActive(false);
@@ -37,7 +35,7 @@ public class ShopButton : MonoBehaviour
     }
     public void CloseMenu() 
     {
-        _canvasShopMenu.OnExit();
+        shopcanvas.OnExit();
         CloseShopButton.SetActive(false);
         _gameManager.GameOver();
     }

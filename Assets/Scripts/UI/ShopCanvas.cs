@@ -2,7 +2,7 @@ using UnityEngine;
 namespace Game.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class CanvasShopMenu : Menu
+    public class ShopCanvas : Menu
     {
         [SerializeField] private StartMenu startMenu;
         [SerializeField] private ShopButton _shopButton;

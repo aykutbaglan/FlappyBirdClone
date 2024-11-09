@@ -272,7 +272,6 @@ GameObject:
   - component: {fileID: 7084029701190686829}
   - component: {fileID: 6332334484068047443}
   - component: {fileID: 4454845273631419237}
-  - component: {fileID: 6689175505966037643}
   m_Layer: 0
   m_Name: Pipes
   m_TagString: score
@@ -408,19 +407,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 3237577902879853466}
---- !u!114 &6689175505966037643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7120160312095914692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25564fe55978bbd42ab414099eb8fd30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pipes: {fileID: 7120160312095914692}
 --- !u!1001 &4104351158120456908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -507,9 +493,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1448956570455337302, guid: 985130b3c331ee541b4b6e11dcfb0319, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7678795850529952499}
-    - targetCorrespondingSourceObject: {fileID: 1448956570455337302, guid: 985130b3c331ee541b4b6e11dcfb0319, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1097612499154714960}
   m_SourcePrefab: {fileID: 100100000, guid: 985130b3c331ee541b4b6e11dcfb0319, type: 3}
 --- !u!4 &525219183892626284 stripped
@@ -522,19 +505,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1448956570455337302, guid: 985130b3c331ee541b4b6e11dcfb0319, type: 3}
   m_PrefabInstance: {fileID: 4104351158120456908}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7678795850529952499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3237577902879853466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9aa50ed150e0294289a863cb84de7ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coin: {fileID: 3237577902879853466}
 --- !u!50 &1097612499154714960
 Rigidbody2D:
   serializedVersion: 4

@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ScoreBoardManager : MonoBehaviour
 {
     [SerializeField] private ScoreTablePlayer[] scorePlayers;
-    public GameObject nameLoginPanel;
+    [SerializeField] private NameLoginPanel nameLoginPanel;
     private void Start()
     {
         LoadScoreBoardData();
@@ -26,7 +23,7 @@ public class ScoreBoardManager : MonoBehaviour
         if (score > minScore)
         {
             int index = 9;
-            nameLoginPanel.SetActive(true);
+            nameLoginPanel.nameLoginPanelGo.SetActive(true);
             if (PlayerPrefs.GetInt("ScoreBoardScore0") < score)
             {
                 index = 0;
@@ -44,7 +41,7 @@ public class ScoreBoardManager : MonoBehaviour
             }
             ShiftScores(index);
             SaveCurrentScore(score,name,index);
-            nameLoginPanel.SetActive(false);
+            nameLoginPanel.nameLoginPanelGo.SetActive(false);
         }
         LoadScoreBoardData();
     }
@@ -54,11 +51,11 @@ public class ScoreBoardManager : MonoBehaviour
         int minscores = PlayerPrefs.GetInt("ScoreBoardScore9");
         if (score > minscores)
         {
-            nameLoginPanel.SetActive(true);
+            nameLoginPanel.nameLoginPanelGo.SetActive(true);
         }
         else
         {
-            nameLoginPanel.SetActive(false);
+            nameLoginPanel.nameLoginPanelGo.SetActive(false);
         }
     }
     public void ShiftScores(int index)
