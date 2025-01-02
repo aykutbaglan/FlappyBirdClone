@@ -2451,7 +2451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera_Move: 1
-  Camera_MoveSpeed: 3
+  Camera_MoveSpeed: 3.5
   Layer_Speed:
   - 1
   - 0.9
@@ -5844,7 +5844,7 @@ GameObject:
   m_Layer: 5
   m_Name: PipesSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -5877,10 +5877,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pipes: {fileID: 7120160312095914692, guid: 7f6dc716e97d6704fab77d0aac1c015c, type: 3}
   pipesSpawner: {fileID: 1598444961}
-  spawnspeed: 3
+  moveSpeed: 3.5
   upHeight: 1
   downHeight: -5
-  xPos: 25
+  xPos: 30
+  spawnRate: 2.5
+  despawnTime: 9
 --- !u!1001 &1660501763
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13129,6 +13131,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5227437870884689573, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227437870884689573, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -13136,6 +13142,10 @@ PrefabInstance:
       propertyPath: inGameMenu
       value: 
       objectReference: {fileID: 1816814922}
+    - target: {fileID: 5246338498387328531, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
+      propertyPath: pipesSpawn
+      value: 
+      objectReference: {fileID: 1598444962}
     - target: {fileID: 5246338498387328531, guid: 0b8a40de048b9994093d7fe46436bb37, type: 3}
       propertyPath: endGameMenu
       value: 
