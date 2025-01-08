@@ -4,7 +4,7 @@ using UnityEngine;
 public class ScoreManager : MonoBehaviour
 {
     public PlayerProperties mainPlayer;
-    [SerializeField] public TMP_Text goldScoreText;
+    [SerializeField] private TMP_Text goldScoreText;
     [SerializeField] private TMP_Text scoreText;
     private int goldScore = 0;
     

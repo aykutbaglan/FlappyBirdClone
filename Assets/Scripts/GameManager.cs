@@ -22,6 +22,13 @@ public class GameManager : MonoBehaviour
         }
         EndingState.GameFail = false;
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitGame();
+        }
+    }
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("isGameStarted", 0);
@@ -50,5 +57,9 @@ public class GameManager : MonoBehaviour
     {
         GamePause();
         _canvasMainMenu.OnEnter();
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
