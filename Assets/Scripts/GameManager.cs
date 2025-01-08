@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         GamePause();
         _canvasMainMenu.OnEnter();
     }
-    public void QuitGame()
+    private void QuitGame()
     {
         Application.Quit();
     }
