@@ -48,7 +48,6 @@ public class StartState : State
             canvasGroup.interactable = true;
         }
     }
-
     public override void OnExit()
     {
         base.OnExit();

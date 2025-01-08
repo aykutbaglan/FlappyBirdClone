@@ -24,14 +24,11 @@ public class ShopManager : MonoBehaviour
         for (int i = 0; i < birds.Length; i++)
         {
             _birdPurchased[i] = PlayerPrefs.GetInt("BirdPurchased_" + i, 0) == 1;
-            //birdsimg[i].SetActive(false);
-            
         }
         int savedBirdIndex = PlayerPrefs.GetInt("SelectedBirdIndex", -1);
         if (savedBirdIndex != -1)
         {
             BirdChange(savedBirdIndex);
-            //startButton.gameObject.SetActive(true);  // Kuþ seçildiyse startButton aktif olmalý
             for (int i = 0; i < birdsimg.Length; i++)
             {
                 birdsimg[i].SetActive(false);
@@ -41,9 +38,7 @@ public class ShopManager : MonoBehaviour
         else
         {
             startState.startButton.interactable = false;
-            //startMenu._startButton.gameObject.SetActive(false); // Kuþ seçilmediyse startButton gizlenmeli
         }
-        //startButton.interactable = savedBirdIndex != -1;
         UpdateShopButtons();
         UpdateGoldText();
     }

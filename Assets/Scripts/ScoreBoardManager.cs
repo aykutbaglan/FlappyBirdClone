@@ -45,7 +45,6 @@ public class ScoreBoardManager : MonoBehaviour
         }
         LoadScoreBoardData();
     }
-
     public void ShowNameLoginPanel(int score, string name)
     {
         int minscores = PlayerPrefs.GetInt("ScoreBoardScore9");

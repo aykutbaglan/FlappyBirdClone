@@ -7,7 +7,6 @@ public class InGameState : State
     public override void OnEnter()
     {
         base.OnEnter();
-        //Debug.Log("In Game State On Enter");
         InGameStateEnter();
         birdController.enabled = true;
     }
