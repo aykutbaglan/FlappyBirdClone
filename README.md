@@ -128,8 +128,8 @@ To run the Flappy Bird game on your Windows system, follow these steps:
 
 You can easily download and play the game by following these steps:
 
-    1. Go to the Releases section of this repository.
-    2. Find the latest release and click on it.
-    3. Download the v1.0.1.zip file from the release.
-    4. Unzip the zip file.
-    5. Run    to start playing the game !
+&nbsp;&nbsp;&nbsp; 1. Go to the [Releases](https://github.com/aykutbaglan/FlappyBirdClone/releases) section of this repository.  
+&nbsp;&nbsp;&nbsp; 2. Find the latest release and click on it.  
+&nbsp;&nbsp;&nbsp; 3. Download the ` v0.0.1.zip ` file from the release.  
+&nbsp;&nbsp;&nbsp; 4. Unzip the zip file.    
+&nbsp;&nbsp;&nbsp; 5. Run`FlappyBirdClone.exe`to start playing the game !  
