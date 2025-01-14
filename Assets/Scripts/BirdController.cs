@@ -6,6 +6,7 @@ public class birdController : MonoBehaviour
     public float jumpingForce;
     public Transform bird;
     public float smoothRotationSpeed = 12f;
+    [SerializeField] private AudioSource flySfx;
     private Rigidbody2D _rb;
     private float _targetRotation;
     private void Start()
@@ -19,6 +20,10 @@ public class birdController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             _rb.velocity = Vector2.up * -jumpingForce;
+            if (Time.timeScale == 1)
+            {
+            flySfx.Play();
+            }
             _targetRotation = -20.0f;
         }
         if (_rb.velocity.y > 0)

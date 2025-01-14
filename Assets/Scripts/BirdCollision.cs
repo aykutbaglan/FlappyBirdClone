@@ -3,6 +3,10 @@ using UnityEngine;
 public class BirdCollision : MonoBehaviour
 {
     public GameManager gameManager;
+
+    [SerializeField] private AudioSource pointSfx;
+    [SerializeField] private AudioSource scoreSfx;
+    [SerializeField] private AudioSource dieSfx;
     private void Awake()
     {
         if (gameManager == null)
@@ -16,6 +20,7 @@ public class BirdCollision : MonoBehaviour
         {
             EndingState.GameFail = true;
             gameManager.GameOver();
+            dieSfx.Play();
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -23,11 +28,13 @@ public class BirdCollision : MonoBehaviour
         if (other.gameObject.tag == "score")
         {
             FindObjectOfType<ScoreManager>().IncreaseScore();
+            scoreSfx.Play();
         }
         if (other.gameObject.tag == "coin")
         {
             FindObjectOfType<ScoreManager>().IncreaseGoldScore();
             Destroy(other.gameObject);
+            pointSfx.Play();
         }
     }
 }
