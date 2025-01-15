@@ -42,11 +42,13 @@ public class ShopManager : MonoBehaviour
         UpdateShopButtons();
         UpdateGoldText();
     }
+
     public void CollectCoin(int amount)
     {
         totalCoins += amount;
         PlayerPrefs.SetInt("TotalCoins", totalCoins);
         UpdateGoldText();
+        UpdateShopButtons();
     }
     public void UpdateShopButtons()
     {
@@ -112,7 +114,7 @@ public class ShopManager : MonoBehaviour
             }
         }
     }
-    private void UpdateGoldText()
+    public void UpdateGoldText()
     {
         goldtxt.text = totalCoins.ToString();
     }

@@ -9,7 +9,7 @@ public class CoinSpawn : MonoBehaviour
     }
     public void Coin()
     {
-        if (UnityEngine.Random.Range(0, 0) == 0)
+        if (UnityEngine.Random.Range(0, 5) == 0)
         {
             coin.SetActive(true);
         }

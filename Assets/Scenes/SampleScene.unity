@@ -3891,6 +3891,7 @@ MonoBehaviour:
   _shopButton: {fileID: 914710966}
   _gameManager: {fileID: 596880055}
   endingState: {fileID: 540126094}
+  shopManager: {fileID: 3553274567867605333}
 --- !u!225 &914710965
 CanvasGroup:
   m_ObjectHideFlags: 0
